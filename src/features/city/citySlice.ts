@@ -1,14 +1,24 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CityData } from "./cityTypes";
 
-const initialState = null;
+const initialState: CityData = {
+  country: "",
+  latitude: 0,
+  longitude: 0,
+  name: "",
+  timezone: "",
+};
 
 const citySlice = createSlice({
   name: "city",
   initialState: initialState,
   reducers: {
-    setCity(state: CityData | null, action: PayloadAction<CityData>) {
-      state = action.payload;
+    setCity(state, action: PayloadAction<CityData>) {
+      state.country = action.payload.country;
+      state.name = action.payload.name;
+      state.latitude = action.payload.latitude;
+      state.longitude = action.payload.longitude;
+      state.timezone = action.payload.timezone;
     },
   },
 });

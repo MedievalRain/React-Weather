@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { geocodingApi } from "../../services/geocoding";
+import CitySearchItem from "./CitySearchItem";
+import { useAppSelector } from "../../hooks/storeHooks";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
@@ -11,6 +13,7 @@ function CitySearch() {
     },
     { skip: inputValue.length < 2 }, // API does not work with query < 2 length.
   );
+  const { name: city, country } = useAppSelector((state) => state.city);
   return (
     <div>
       <input
@@ -22,10 +25,11 @@ function CitySearch() {
       <label htmlFor=""></label>
       {result?.results &&
         result.results.map((city) => (
-          <div key={city.id}>
-            {city.name}, {city.country}
-          </div>
+          <CitySearchItem searchItem={city} key={city.id} />
         ))}
+      <div>
+        {city}, {country}
+      </div>
     </div>
   );
 }
