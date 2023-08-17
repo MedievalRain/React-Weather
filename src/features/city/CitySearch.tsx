@@ -9,7 +9,7 @@ function CitySearch() {
       cityName: inputValue,
       language: "ru",
     },
-    { skip: inputValue.length < 2 },
+    { skip: inputValue.length < 2 }, // API does not work with query < 2 length.
   );
   return (
     <div>
