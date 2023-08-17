@@ -7,6 +7,7 @@ const initialState: CityData = {
   longitude: 0,
   name: "",
   timezone: "",
+  id: 0,
 };
 
 const citySlice = createSlice({
@@ -19,6 +20,7 @@ const citySlice = createSlice({
       state.latitude = action.payload.latitude;
       state.longitude = action.payload.longitude;
       state.timezone = action.payload.timezone;
+      state.id = action.payload.id;
     },
   },
 });

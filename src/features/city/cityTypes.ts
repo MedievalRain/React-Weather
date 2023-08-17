@@ -20,6 +20,7 @@ export type GeocodingSchema = {
 };
 
 export type CityData = {
+  id: number;
   name: string;
   timezone: string;
   country: string;

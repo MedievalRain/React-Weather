@@ -17,6 +17,7 @@ function CitySearchItem({ searchItem }: CitySearchItemProps) {
       latitude: searchItem.latitude,
       longitude: searchItem.longitude,
       timezone: searchItem.timezone,
+      id: searchItem.id,
     };
     dispatch(setCity(cityData));
   }
