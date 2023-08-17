@@ -6,7 +6,7 @@ import { useAppSelector } from "../../hooks/storeHooks";
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
 
-  const { data: result } = geocodingApi.useSearchCityQuery(
+  const { data: cities } = geocodingApi.useSearchCityQuery(
     {
       cityName: inputValue,
       language: "ru",
@@ -23,8 +23,8 @@ function CitySearch() {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <label htmlFor=""></label>
-      {result?.results &&
-        result.results.map((city) => (
+      {cities?.results &&
+        cities.results.map((city) => (
           <CitySearchItem searchItem={city} key={city.id} />
         ))}
       <div>
