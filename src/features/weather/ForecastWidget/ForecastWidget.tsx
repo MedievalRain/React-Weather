@@ -32,6 +32,7 @@ function ForecastWidget({}: ForecastWidgetProps) {
                 temperatureMin={weather.daily.temperature_2m_min[index]}
                 windDirection={weather.daily.winddirection_10m_dominant[index]}
                 windspeed={weather.daily.windspeed_10m_max[index]}
+                weathercode={weather.daily.weathercode[index]}
                 timezone={timezone}
               />
             ))}

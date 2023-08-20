@@ -27,6 +27,15 @@ function WeatherIcon({ weathercode, size, isDay }: WeatherIconProps) {
         />
       );
     }
+    case "small": {
+      return (
+        <img
+          className="w-10 translate-y-0.5"
+          src={`/weather-icons/${fileName}.svg`}
+          alt="fileName"
+        />
+      );
+    }
     default: {
       return null;
     }

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { languageSchema } from "../../i18n/i18nTypes";
 import { formatInTimeZone } from "date-fns-tz";
+import WeatherIcon from "../../../ui/WeatherIcon";
 
 interface ForecastTableItemProps {
   timestamp: number;
@@ -8,6 +9,7 @@ interface ForecastTableItemProps {
   temperatureMin: number;
   windspeed: number;
   windDirection: number;
+  weathercode: number;
   precipation: number;
   timezone: string;
 }
@@ -20,6 +22,7 @@ function ForecastTableItem({
   windDirection,
   precipation,
   timezone,
+  weathercode,
 }: ForecastTableItemProps) {
   const { i18n, t } = useTranslation();
   const formattedDate = formatInTimeZone(
@@ -41,8 +44,12 @@ function ForecastTableItem({
         <div className="font-semibold">{formattedWeekday}</div>
         <div className="text-gray-600">{formattedDate}</div>
       </td>
-      <td className="">
-        {Math.round(temperatureMax)}° {Math.round(temperatureMin)}°
+      <td>
+        <div className="flex items-center justify-center gap-1">
+          <WeatherIcon size="small" weathercode={weathercode} />
+          <div>{Math.round(temperatureMax)}°</div>
+          <div className="text-gray-600">{Math.round(temperatureMin)}°</div>
+        </div>
       </td>
       <td className="">{precipation}%</td>
       <td className="">
