@@ -11,7 +11,7 @@ function MainWidget() {
   const { timezone } = useAppSelector((state) => state.city);
   if (weather) {
     return (
-      <div className="flex flex-col gap-2 p-4">
+      <div className="flex h-full flex-col gap-4 p-4">
         <FormattedDate timezone={timezone} />
         <WeatherDescription
           currentTemperature={weather.current_weather.temperature}
@@ -26,6 +26,7 @@ function MainWidget() {
           />
           {Math.round(weather.current_weather.temperature)}°
         </div>
+
         <PeriodsForecast
           temperatures={weather.hourly.temperature_2m}
           weathercodes={weather.hourly.weathercode}
