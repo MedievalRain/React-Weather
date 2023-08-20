@@ -54,5 +54,13 @@
     "wind": "Wind",
     "mc": "m/s",
     "tomorrow": "Tomorrow"
+  },
+  "uv": {
+    "uv_index": "UV index",
+    "low": "low",
+    "moderate": "moderate",
+    "high": "high",
+    "very_high": "very high",
+    "extreme": "extreme"
   }
 }
