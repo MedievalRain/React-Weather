@@ -83,20 +83,20 @@ export function compareTemperature(
 
 export function getDirectionSymbol(direction: number) {
   if (direction <= 45) {
-    return "←";
+    return "🡸";
   } else if (direction < 90) {
-    return "↖";
+    return "🡼";
   } else if (direction < 135) {
-    return "↑";
+    return "🡹";
   } else if (direction < 180) {
-    return "↗";
+    return "🡽";
   } else if (direction < 225) {
-    return "→";
+    return "🢂";
   } else if (direction < 270) {
-    return "↘";
+    return "🡾";
   } else if (direction < 315) {
-    return "↓";
+    return "🢃";
   } else if (direction <= 360) {
-    return "↙";
+    return "🡿";
   }
 }

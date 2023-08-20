@@ -55,8 +55,8 @@ function ForecastTableItem({
       </td>
       <td>{precipation}%</td>
       <td>
-        <div className="flex items-center justify-center gap-1">
-          <div> {directionSymbol}</div>
+        <div className="flex items-center justify-evenly">
+          <div>{directionSymbol}</div>
           <div>
             {Math.round(windspeed)} {t("forecast.mc")}
           </div>
