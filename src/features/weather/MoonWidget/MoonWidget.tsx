@@ -6,8 +6,7 @@ import { useTranslation } from "react-i18next";
 
 function MoonWidget() {
   const { t } = useTranslation();
-  const moonPhaseNumber = SunCalc.getMoonIllumination(new Date()).phase;
-  const phase = getPhaseName(moonPhaseNumber);
+  const phase = getPhaseName();
   return (
     <div className="flex flex-col items-center p-4">
       <div className="font-semibold">{t("uv.uv_index")}</div>
