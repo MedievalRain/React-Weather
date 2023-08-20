@@ -41,7 +41,7 @@ function ForecastTableItem({
   return (
     <tr className="">
       <td className="text-left">
-        <div className="font-semibold">{formattedWeekday}</div>
+        <div className="font-semibold capitalize">{formattedWeekday}</div>
         <div className="text-gray-600">{formattedDate}</div>
       </td>
       <td>
