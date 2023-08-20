@@ -7,7 +7,7 @@ import MainWidget from "./features/weather/MainWidget";
 function App() {
   return (
     <div className="h-full min-h-screen w-screen bg-sky-100">
-      <main className="mx-auto w-full max-w-5xl">
+      <main className="mx-auto w-full max-w-5xl px-4">
         <Provider store={store}>
           <CitySearch />
           <div className="grid grid-cols-2 gap-4">
