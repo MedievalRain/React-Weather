@@ -36,17 +36,17 @@ function ForecastTableItem({
   );
 
   return (
-    <div className="flex border-b">
-      <div className="w-1/4 p-2 text-left font-semibold capitalize">
-        <div className="">{formattedWeekday}</div>
+    <tr className="">
+      <td className="text-left">
+        <div className="font-semibold">{formattedWeekday}</div>
         <div className="text-gray-600">{formattedDate}</div>
-      </div>
-      <div className="w-1/4 p-2 text-left">
+      </td>
+      <td className="">
         {Math.round(temperatureMax)}° {Math.round(temperatureMin)}°
-      </div>
-      <div className="w-1/4 p-2 text-left">{precipation}%</div>
-      <div className="w-1/4 p-2 text-left">{Math.round(windspeed)} м/с</div>
-    </div>
+      </td>
+      <td className="">{precipation}%</td>
+      <td className="">{Math.round(windspeed)} м/с</td>
+    </tr>
   );
 }
 
