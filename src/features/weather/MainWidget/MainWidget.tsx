@@ -7,9 +7,10 @@ import PeriodsForecast from "./PeriodsForecast";
 import WeatherDescription from "./WeatherDescription";
 
 function MainWidget() {
-  const weather = useWeather();
+  const { weather } = useWeather();
   const { timezone } = useAppSelector((state) => state.city);
-  if (weather) {
+
+  if (weather != undefined) {
     return (
       <div className="flex h-full flex-col gap-4 p-4">
         <FormattedDate timezone={timezone} />

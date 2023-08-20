@@ -15,7 +15,7 @@ function useWeather() {
     { skip: id === 0 },
   );
 
-  return weather;
+  return { weather };
 }
 
 export default useWeather;
