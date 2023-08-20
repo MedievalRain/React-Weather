@@ -13,6 +13,7 @@ interface ForecastTableItemProps {
   weathercode: number;
   precipation: number;
   timezone: string;
+  isFirst: boolean;
 }
 
 function ForecastTableItem({
@@ -24,6 +25,7 @@ function ForecastTableItem({
   precipation,
   timezone,
   weathercode,
+  isFirst,
 }: ForecastTableItemProps) {
   const { i18n, t } = useTranslation();
   const formattedDate = formatInTimeZone(
@@ -32,12 +34,14 @@ function ForecastTableItem({
     "dd MMMM",
     { locale: languageSchema[i18n.language] },
   );
-  const formattedWeekday = formatInTimeZone(
-    timestamp * 1000, // milliseconds
-    timezone,
-    "EEEE",
-    { locale: languageSchema[i18n.language] },
-  );
+  const formattedWeekday = !isFirst
+    ? formatInTimeZone(
+        timestamp * 1000, // milliseconds
+        timezone,
+        "EEEE",
+        { locale: languageSchema[i18n.language] },
+      )
+    : t("forecast.tomorrow");
   const directionSymbol = getDirectionSymbol(windDirection);
 
   return (

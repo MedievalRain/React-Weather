@@ -52,6 +52,7 @@
     "temperature": "Temperature",
     "precipitation": "Precipitation",
     "wind": "Wind",
-    "mc": "m/s"
+    "mc": "m/s",
+    "tomorrow": "Tomorrow"
   }
 }

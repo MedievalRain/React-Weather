@@ -25,6 +25,7 @@ function ForecastWidget({}: ForecastWidgetProps) {
           <tbody className="divide-y text-center">
             {weather.daily.time.slice(2).map((timestamp, index) => (
               <ForecastTableItem
+                isFirst={index === 0}
                 timestamp={timestamp}
                 precipation={weather.daily.precipitation_probability_max[index]}
                 temperatureMax={weather.daily.temperature_2m_max[index]}

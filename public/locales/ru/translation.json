@@ -52,6 +52,7 @@
     "temperature": "Температура",
     "precipitation": "Осадки",
     "wind": "Ветер",
-    "mc": "м/с"
+    "mc": "м/с",
+    "tomorrow": "Завтра"
   }
 }
