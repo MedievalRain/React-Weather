@@ -23,7 +23,7 @@ function MainWidget() {
         </div>
         <div className="flex -translate-x-4 items-center font-mono text-6xl font-extrabold text-gray-700">
           <WeatherIcon size="big" weathercode={1} />
-          21°
+          {Math.round(weather.current_weather.temperature)}°
         </div>
         <div className="flex justify-between">
           <div className="flex flex-col">
