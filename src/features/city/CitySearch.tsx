@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { geocodingApi } from "../../services/geocoding";
 import CitySearchItem from "./CitySearchItem";
 import { useAppSelector } from "../../hooks/storeHooks";
@@ -6,12 +6,14 @@ import useKey from "../../hooks/useKey";
 import { useTranslation } from "react-i18next";
 import LanguageMenu from "../i18n/LanguageMenu";
 import { getLanguageByFirstLetter } from "../../utils/searchLang";
+import useClickOutside from "../../hooks/useClickOutside";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
   const [isOpened, setIsOpened] = useState(true);
   const { t } = useTranslation();
-
+  const menuRef = useRef<HTMLInputElement>(null);
+  useClickOutside(menuRef, () => setIsOpened(false));
   const { data: foundCities } = geocodingApi.useSearchCityQuery(
     {
       cityName: inputValue,
@@ -26,7 +28,7 @@ function CitySearch() {
 
   const { name: cityName, country } = useAppSelector((state) => state.city);
   return (
-    <div>
+    <div ref={menuRef}>
       <div className="flex items-center gap-2">
         <LanguageMenu />
         <input
