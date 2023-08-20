@@ -31,7 +31,10 @@ function MainWidget() {
           Сегодня холоднее, чем вчера и облачно
         </div>
         <div className="flex -translate-x-4 items-center font-mono text-6xl font-extrabold text-gray-700">
-          <WeatherIcon size="big" weathercode={1} />
+          <WeatherIcon
+            size="big"
+            weathercode={weather.current_weather.weathercode}
+          />
           {Math.round(weather.current_weather.temperature)}°
         </div>
         <div className="flex justify-between">
