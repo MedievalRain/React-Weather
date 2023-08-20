@@ -4,11 +4,12 @@ import store from "./store";
 import CitySearch from "./features/city/CitySearch";
 import MainWidget from "./features/weather/MainWidget/MainWidget";
 import { Suspense } from "react";
+import ForecastWidget from "./features/weather/ForecastWidget/ForecastWidget";
 
 function App() {
   return (
     <Suspense>
-      <div className="h-full min-h-screen w-screen bg-sky-100">
+      <div className="h-full min-h-screen w-screen bg-sky-100 text-gray-700">
         <main className="mx-auto w-full max-w-5xl px-4">
           <Provider store={store}>
             <CitySearch />
@@ -16,7 +17,9 @@ function App() {
               <Widget>
                 <MainWidget />
               </Widget>
-              <Widget></Widget>
+              <Widget>
+                <ForecastWidget />
+              </Widget>
               <Widget></Widget>
               <Widget></Widget>
             </div>
