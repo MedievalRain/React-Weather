@@ -24,7 +24,7 @@ export const weatherApi = createApi({
           daily:
             "weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max,windspeed_10m_max,winddirection_10m_dominant",
           timeformat: "unixtime",
-          timezone: timezone,
+          timezone: "GMT",
           past_days: 1,
           current_weather: true,
           forecast_days: 8,

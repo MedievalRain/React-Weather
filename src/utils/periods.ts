@@ -1,5 +1,5 @@
 import { utcToZonedTime } from "date-fns-tz";
-import { getHours, addHours, set } from "date-fns";
+import { getHours, set, addDays } from "date-fns";
 import { Period } from "../features/weather/weatherTypes";
 import { toTimestampInSeconds } from "./format";
 
@@ -11,20 +11,34 @@ export function getPeriods(timezone: string) {
     milliseconds: 0,
   });
 
-  const zonedDate = utcToZonedTime(normalizedDate, timezone);
-  const periods: Period[] = Array.from({ length: 3 }, (_, index) => {
-    const date = addHours(zonedDate, (index + 1) * 6);
+  let date = normalizedDate;
+  const periods: Period[] = Array.from({ length: 4 }, (_, index) => {
     const timestamp = toTimestampInSeconds(date);
-    const hour = getHours(date);
+    const zonedDate = utcToZonedTime(date, timezone);
+    const hour = getHours(zonedDate);
+
     let name = "";
-    if (hour >= 0 && hour < 6) {
+    if (hour < 5) {
       name = "night";
-    } else if (hour <= 12) {
+      date = set(date, {
+        hours: 5,
+      });
+    } else if (hour < 12) {
       name = "morning";
-    } else if (hour < 17) {
+      date = set(date, {
+        hours: 12,
+      });
+    } else if (hour <= 16) {
       name = "day";
+      date = set(date, {
+        hours: 17,
+      });
     } else {
       name = "evening";
+      date = addDays(date, 1);
+      date = set(date, {
+        hours: 0,
+      });
     }
 
     return {
@@ -32,5 +46,5 @@ export function getPeriods(timezone: string) {
       name: name,
     };
   });
-  return periods;
+  return periods.slice(1);
 }

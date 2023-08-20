@@ -49,7 +49,7 @@ export function getFileByWeathercode(weathercode: number, isDay: 0 | 1 = 1) {
       return "thunderstorms";
     }
     default: {
-      throw new Error(`Uknown weather code ${weathercode}`);
+      console.error(`Uknown weather code ${weathercode}`);
     }
   }
 }
