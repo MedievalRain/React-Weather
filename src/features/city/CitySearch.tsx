@@ -5,15 +5,17 @@ import { useAppSelector } from "../../hooks/storeHooks";
 import useKey from "../../hooks/useKey";
 import { useTranslation } from "react-i18next";
 import LanguageMenu from "../i18n/LanguageMenu";
+import { getLanguageByFirstLetter } from "../../utils/searchLang";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
   const [isOpened, setIsOpened] = useState(true);
   const { t } = useTranslation();
+
   const { data: foundCities } = geocodingApi.useSearchCityQuery(
     {
       cityName: inputValue,
-      language: "ru",
+      language: getLanguageByFirstLetter(inputValue),
     },
     { skip: inputValue.length < 2 }, // API does not work with query < 2 length.
   );
