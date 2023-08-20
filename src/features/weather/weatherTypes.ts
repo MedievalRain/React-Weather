@@ -51,3 +51,8 @@ export type WeatherResponse = {
     winddirection_10m_dominant: number[];
   };
 };
+
+export type Period = {
+  name: string;
+  timestamp: number;
+};

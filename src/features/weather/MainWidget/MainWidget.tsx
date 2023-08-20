@@ -3,6 +3,7 @@ import { weatherApi } from "../../../services/weather";
 import WeatherIcon from "../../../ui/WeatherIcon";
 import { formatInTimeZone } from "date-fns-tz";
 import ru from "date-fns/locale/ru";
+import PeriodsForecast from "./PeriodsForecast";
 
 function MainWidget() {
   const { latitude, longitude, timezone, id } = useAppSelector(
@@ -37,29 +38,12 @@ function MainWidget() {
           />
           {Math.round(weather.current_weather.temperature)}°
         </div>
-        <div className="flex justify-between">
-          <div className="flex flex-col">
-            <div className="text-gray-600">Ночью</div>
-            <div className="flex -translate-x-4 items-center font-mono text-2xl font-extrabold text-gray-700">
-              <WeatherIcon size="medium" weathercode={1} />
-              13°
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <div className="text-gray-600">Ночью</div>
-            <div className="flex -translate-x-4 items-center font-mono text-2xl font-extrabold text-gray-700">
-              <WeatherIcon size="medium" weathercode={1} />
-              13°
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <div className="text-gray-600">Ночью</div>
-            <div className="flex -translate-x-4 items-center font-mono text-2xl font-extrabold text-gray-700">
-              <WeatherIcon size="medium" weathercode={1} />
-              13°
-            </div>
-          </div>
-        </div>
+        <PeriodsForecast
+          temperatures={weather.hourly.temperature_2m}
+          weathercodes={weather.hourly.weathercode}
+          time={weather.hourly.time}
+          timezone={timezone}
+        />
       </div>
     );
   }
