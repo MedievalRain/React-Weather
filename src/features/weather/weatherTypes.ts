@@ -6,6 +6,14 @@ export type WeatherResponse = {
   timezone: string;
   timezone_abbreviation: string;
   elevation: number;
+  current_weather: {
+    temperature: number;
+    windspeed: number;
+    winddirection: number;
+    weathercode: number;
+    is_day: 0 | 1;
+    time: number;
+  };
   hourly_units: {
     time: string;
     temperature_2m: string;

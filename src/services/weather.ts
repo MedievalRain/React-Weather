@@ -26,6 +26,7 @@ export const weatherApi = createApi({
           timeformat: "unixtime",
           timezone: timezone,
           past_days: 1,
+          current_weather: true,
         },
       }),
     }),
