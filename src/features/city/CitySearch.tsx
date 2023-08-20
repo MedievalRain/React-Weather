@@ -15,7 +15,10 @@ function CitySearch() {
     { skip: inputValue.length < 2 }, // API does not work with query < 2 length.
   );
   useKey("Escape", () => setIsOpened(false));
-  useEffect(() => setIsOpened(true), [inputValue]);
+  useEffect(() => {
+    setIsOpened(inputValue.length >= 2);
+  }, [inputValue]);
+
   const { name: city, country } = useAppSelector((state) => state.city);
   return (
     <div>
@@ -32,7 +35,7 @@ function CitySearch() {
           foundCities.results.map((city) => (
             <CitySearchItem
               searchItem={city}
-              setIsOpened={setIsOpened}
+              setInputValue={setInputValue}
               key={city.id}
             />
           ))
