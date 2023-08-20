@@ -11,7 +11,7 @@ interface ForecastTableItemProps {
   windspeed: number;
   windDirection: number;
   weathercode: number;
-  precipation: number;
+  precipitation: number;
   timezone: string;
   isFirst: boolean;
 }
@@ -22,7 +22,7 @@ function ForecastTableItem({
   temperatureMin,
   windspeed,
   windDirection,
-  precipation,
+  precipitation,
   timezone,
   weathercode,
   isFirst,
@@ -57,7 +57,7 @@ function ForecastTableItem({
           <div className="text-gray-600">{Math.round(temperatureMin)}°</div>
         </div>
       </td>
-      <td>{precipation}%</td>
+      <td>{precipitation}%</td>
       <td>
         <div className="flex items-center justify-evenly">
           <div>{directionSymbol}</div>

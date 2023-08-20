@@ -26,7 +26,9 @@ function ForecastWidget() {
                 key={timestamp}
                 isFirst={index === 0}
                 timestamp={timestamp}
-                precipation={weather.daily.precipitation_probability_max[index]}
+                precipitation={
+                  weather.daily.precipitation_probability_max[index]
+                }
                 temperatureMax={weather.daily.temperature_2m_max[index]}
                 temperatureMin={weather.daily.temperature_2m_min[index]}
                 windDirection={weather.daily.winddirection_10m_dominant[index]}
