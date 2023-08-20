@@ -1,10 +1,8 @@
 import { utcToZonedTime } from "date-fns-tz";
 import { getHours, addHours, set } from "date-fns";
 import { Period } from "../features/weather/weatherTypes";
+import { toTimestampInSeconds } from "./format";
 
-function toTimestampInSeconds(date: Date): number {
-  return Math.floor(date.getTime() / 1000);
-}
 export function getPeriods(timezone: string) {
   const rawDate = new Date();
   const normalizedDate = set(rawDate, {

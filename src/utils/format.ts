@@ -51,3 +51,7 @@ export function getFileByWeathercode(weathercode: number, isDay: 0 | 1 = 1) {
     }
   }
 }
+
+export function toTimestampInSeconds(date: Date): number {
+  return Math.floor(date.getTime() / 1000);
+}
