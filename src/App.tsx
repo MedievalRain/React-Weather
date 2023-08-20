@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import Widget from "./ui/Widget";
 import store from "./store";
 import CitySearch from "./features/city/CitySearch";
-import MainWidget from "./features/weather/MainWidget";
+import MainWidget from "./features/weather/MainWidget/MainWidget";
 
 function App() {
   return (

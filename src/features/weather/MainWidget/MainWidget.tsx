@@ -1,5 +1,5 @@
-import { useAppSelector } from "../../hooks/storeHooks";
-import { weatherApi } from "../../services/weather";
+import { useAppSelector } from "../../../hooks/storeHooks";
+import { weatherApi } from "../../../services/weather";
 
 function MainWidget() {
   const { latitude, longitude, timezone, id } = useAppSelector(
