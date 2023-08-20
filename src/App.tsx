@@ -12,8 +12,8 @@ import MoonWidget from "./features/weather/MoonWidget/MoonWidget";
 function App() {
   return (
     <Suspense>
-      <div className=" min-h-screen w-screen flex-col bg-sky-100 text-gray-700">
-        <main className="mx-auto flex h-full w-full max-w-5xl flex-col gap-2 px-4">
+      <div className="min-h-screen w-screen flex-col bg-sky-100 text-gray-700">
+        <main className="mx-auto flex h-full w-full max-w-5xl flex-col gap-4 px-4">
           <Provider store={store}>
             <CitySearch />
             <div className="flex grid-cols-2 flex-col gap-4 md:grid">

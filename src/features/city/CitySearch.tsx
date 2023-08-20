@@ -29,11 +29,11 @@ function CitySearch() {
   const { name: cityName, country } = useAppSelector((state) => state.city);
   return (
     <div ref={menuRef}>
-      <div className="flex items-center gap-2">
+      <div className="mt-4 flex items-center  gap-2">
         <LanguageMenu />
         <input
           id="search"
-          className="my-4 w-full flex-1 rounded-md p-1 shadow-md"
+          className="w-full flex-1 rounded-md p-1 shadow-md"
           type="text"
           value={inputValue}
           placeholder={`${t("search.placeholder")}...`}
