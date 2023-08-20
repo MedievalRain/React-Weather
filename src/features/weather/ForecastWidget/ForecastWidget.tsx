@@ -37,6 +37,7 @@ function ForecastWidget() {
                 timezone={timezone}
               />
             ))}
+            {/* slice(2) is needed because the API returns yesterday and today as two first elements. */}
           </tbody>
         </table>
       </div>
