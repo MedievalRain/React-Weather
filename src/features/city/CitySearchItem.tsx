@@ -26,8 +26,8 @@ function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
   }
 
   return (
-    <li className="px-2 py-1 hover:bg-sky-200">
-      <button onClick={handleCityPick}>
+    <li className="rounded-md px-2 py-1 hover:bg-sky-200">
+      <button onClick={handleCityPick} className="w-full text-start">
         {searchItem.name}, {searchItem.country}, {searchItem.admin1}
       </button>
     </li>
