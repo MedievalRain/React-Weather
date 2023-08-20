@@ -3,10 +3,12 @@ import { geocodingApi } from "../../services/geocoding";
 import CitySearchItem from "./CitySearchItem";
 import { useAppSelector } from "../../hooks/storeHooks";
 import useKey from "../../hooks/useKey";
+import { useTranslation } from "react-i18next";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
   const [isOpened, setIsOpened] = useState(true);
+  const { t } = useTranslation();
   const { data: foundCities } = geocodingApi.useSearchCityQuery(
     {
       cityName: inputValue,
@@ -28,7 +30,7 @@ function CitySearch() {
           className="my-4 w-full flex-1 rounded-md p-1 shadow-md"
           type="text"
           value={inputValue}
-          placeholder="Type a city name..."
+          placeholder={`${t("search.placeholder")}...`}
           onChange={(e) => setInputValue(e.target.value)}
         />
         {cityName ? (
