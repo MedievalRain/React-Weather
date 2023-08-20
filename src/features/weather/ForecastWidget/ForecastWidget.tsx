@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../../hooks/storeHooks";
 import useWeather from "../../../hooks/useWeather";
 import { weatherApi } from "../../../services/weather";
@@ -8,17 +9,18 @@ interface ForecastWidgetProps {}
 function ForecastWidget({}: ForecastWidgetProps) {
   const weather = useWeather();
   const { timezone } = useAppSelector((state) => state.city);
+  const { t } = useTranslation();
   if (weather)
     return (
       <div className="flex flex-col gap-2 p-4 ">
-        <div>Погода на неделю</div>
+        <div>{t("forecast.week_forecast")}</div>
         <table>
           <thead className="text-gray-600">
             <tr>
-              <th className="text-left">День</th>
-              <th>Температура</th>
-              <th>Осадки</th>
-              <th>Ветер</th>
+              <th className="text-left">{t("forecast.day")}</th>
+              <th>{t("forecast.temperature")}</th>
+              <th>{t("forecast.precipitation")}</th>
+              <th>{t("forecast.wind")}</th>
             </tr>
           </thead>
           <tbody className="divide-y text-center">

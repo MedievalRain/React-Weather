@@ -21,7 +21,7 @@ function ForecastTableItem({
   precipation,
   timezone,
 }: ForecastTableItemProps) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const formattedDate = formatInTimeZone(
     timestamp * 1000, // milliseconds
     timezone,
@@ -45,7 +45,9 @@ function ForecastTableItem({
         {Math.round(temperatureMax)}° {Math.round(temperatureMin)}°
       </td>
       <td className="">{precipation}%</td>
-      <td className="">{Math.round(windspeed)} м/с</td>
+      <td className="">
+        {Math.round(windspeed)} {t("forecast.mc")}
+      </td>
     </tr>
   );
 }
