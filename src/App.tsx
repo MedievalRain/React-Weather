@@ -13,7 +13,7 @@ function App() {
         <main className="mx-auto w-full max-w-5xl px-4">
           <Provider store={store}>
             <CitySearch />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex grid-cols-2 flex-col gap-4 md:grid">
               <Widget>
                 <MainWidget />
               </Widget>
