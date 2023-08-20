@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { compareTemperature } from "../../../utils/format";
 
 interface WeatherDescriptionProps {
@@ -18,10 +19,15 @@ function WeatherDescription({
     temperatures,
     times,
   );
+  const { t } = useTranslation();
 
   return (
     <div className="text-3xl font-extrabold text-gray-700">
-      It's {comparision} today than yesterday and cloudy
+      {`${t("description.today")} ${t(`description.${comparision}`)} ${t(
+        "description.than_yesterday",
+      )}, ${t("description.and")} ${t(
+        `description.weathercode.${weathercode}`,
+      )}`}
     </div>
   );
 }
