@@ -41,6 +41,9 @@ dependencies:
   react-redux:
     specifier: ^8.1.2
     version: 8.1.2(@types/react-dom@18.2.7)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
+  suncalc:
+    specifier: ^1.9.0
+    version: 1.9.0
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
@@ -52,6 +55,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.2.7
     version: 18.2.7
+  '@types/suncalc':
+    specifier: ^1.9.0
+    version: 1.9.0
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.2.0
     version: 6.2.0(@typescript-eslint/parser@6.2.0)(eslint@8.45.0)(typescript@5.0.2)
@@ -682,6 +688,10 @@ packages:
 
   /@types/semver@7.5.0:
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
+    dev: true
+
+  /@types/suncalc@1.9.0:
+    resolution: {integrity: sha512-+c2wOhgyG5ZTtxfC8XG5SGY36HNlXYaPqv/mqBbjXn3iKWx0Lj375AShoKbjF1MCGoXFhSl3jLlmxTksjaGyZQ==}
     dev: true
 
   /@types/use-sync-external-store@0.0.3:
@@ -2655,6 +2665,10 @@ packages:
       mz: 2.7.0
       pirates: 4.0.6
       ts-interface-checker: 0.1.13
+    dev: false
+
+  /suncalc@1.9.0:
+    resolution: {integrity: sha512-vMJ8Byp1uIPoj+wb9c1AdK4jpkSKVAywgHX0lqY7zt6+EWRRC3Z+0Ucfjy/0yxTVO1hwwchZe4uoFNqrIC24+A==}
     dev: false
 
   /supports-color@5.5.0:
