@@ -39,7 +39,7 @@ function ForecastTableItem({
   );
 
   return (
-    <tr className="">
+    <tr>
       <td className="text-left">
         <div className="font-semibold capitalize">{formattedWeekday}</div>
         <div className="text-gray-600">{formattedDate}</div>
@@ -51,8 +51,8 @@ function ForecastTableItem({
           <div className="text-gray-600">{Math.round(temperatureMin)}°</div>
         </div>
       </td>
-      <td className="">{precipation}%</td>
-      <td className="">
+      <td>{precipation}%</td>
+      <td>
         {Math.round(windspeed)} {t("forecast.mc")}
       </td>
     </tr>
