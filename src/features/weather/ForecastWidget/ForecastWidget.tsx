@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../../hooks/storeHooks";
 import useWeather from "../../../hooks/useWeather";
-import { weatherApi } from "../../../services/weather";
 import ForecastTableItem from "./ForecastTableItem";
 
 interface ForecastWidgetProps {}

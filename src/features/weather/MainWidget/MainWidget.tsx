@@ -1,6 +1,5 @@
 import { useAppSelector } from "../../../hooks/storeHooks";
 import useWeather from "../../../hooks/useWeather";
-import { weatherApi } from "../../../services/weather";
 import WeatherIcon from "../../../ui/WeatherIcon";
 import FormattedDate from "./FormattedDate";
 
