@@ -80,3 +80,23 @@ export function compareTemperature(
 
   return "same"; // it's needed to shut up TypeScript
 }
+
+export function getDirectionSymbol(direction: number) {
+  if (direction <= 45) {
+    return "←";
+  } else if (direction < 90) {
+    return "↖";
+  } else if (direction < 135) {
+    return "↑";
+  } else if (direction < 180) {
+    return "↗";
+  } else if (direction < 225) {
+    return "→";
+  } else if (direction < 270) {
+    return "↘";
+  } else if (direction < 315) {
+    return "↓";
+  } else if (direction <= 360) {
+    return "↙";
+  }
+}

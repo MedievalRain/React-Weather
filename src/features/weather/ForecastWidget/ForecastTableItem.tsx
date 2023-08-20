@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { languageSchema } from "../../i18n/i18nTypes";
 import { formatInTimeZone } from "date-fns-tz";
 import WeatherIcon from "../../../ui/WeatherIcon";
+import { getDirectionSymbol } from "../../../utils/format";
 
 interface ForecastTableItemProps {
   timestamp: number;
@@ -37,6 +38,7 @@ function ForecastTableItem({
     "EEEE",
     { locale: languageSchema[i18n.language] },
   );
+  const directionSymbol = getDirectionSymbol(windDirection);
 
   return (
     <tr>
@@ -53,7 +55,12 @@ function ForecastTableItem({
       </td>
       <td>{precipation}%</td>
       <td>
-        {Math.round(windspeed)} {t("forecast.mc")}
+        <div className="flex items-center justify-center gap-1">
+          <div> {directionSymbol}</div>
+          <div>
+            {Math.round(windspeed)} {t("forecast.mc")}
+          </div>
+        </div>
       </td>
     </tr>
   );
