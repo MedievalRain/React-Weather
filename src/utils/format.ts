@@ -108,3 +108,17 @@ export function getDirectionSymbol(direction: number) {
     return "🡿";
   }
 }
+
+export function getBeaufort(windSpeed: number): number {
+  const thresholds = [
+    0.3, 1.6, 3.4, 5.5, 8.0, 10.8, 13.9, 17.2, 20.8, 24.5, 28.5, 32.7,
+  ];
+
+  for (let i = 0; i < thresholds.length; i++) {
+    if (windSpeed < thresholds[i]) {
+      return i;
+    }
+  }
+
+  return 12;
+}

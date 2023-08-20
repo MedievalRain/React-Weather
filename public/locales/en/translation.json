@@ -62,5 +62,21 @@
     "high": "high",
     "very_high": "very high",
     "extreme": "extreme"
+  },
+  "wind": {
+    "wind": "Wind",
+    "0": "Calm",
+    "1": "Light air",
+    "2": "Light breeze",
+    "3": "Gentle breeze",
+    "4": "Moderate breeze",
+    "5": "Fresh breeze",
+    "6": "Strong breeze",
+    "7": "High wind, moderate gale, near gale",
+    "8": "Gale, fresh gale",
+    "9": "Strong/severe gale",
+    "10": "Storm, whole gale",
+    "11": "Violent storm",
+    "12": "Hurricane"
   }
 }

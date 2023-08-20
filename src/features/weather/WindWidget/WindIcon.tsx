@@ -1,12 +1,12 @@
 interface WindIconProps {
-  windSpeed: number;
+  beaufort: number;
 }
 
-function WindIcon({ windSpeed }: WindIconProps) {
+function WindIcon({ beaufort }: WindIconProps) {
   return (
     <img
       className="w-28"
-      src={`/uv-index/uv-index-${windSpeed}.svg`}
+      src={`/wind/wind-beaufort-${beaufort}.svg`}
       alt="UV index"
     />
   );
