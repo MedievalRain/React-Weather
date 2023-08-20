@@ -1,3 +1,5 @@
+import { set, subDays } from "date-fns";
+
 export function getFileByWeathercode(weathercode: number, isDay: 0 | 1 = 1) {
   switch (weathercode) {
     case 0: {
@@ -54,4 +56,27 @@ export function getFileByWeathercode(weathercode: number, isDay: 0 | 1 = 1) {
 
 export function toTimestampInSeconds(date: Date): number {
   return Math.floor(date.getTime() / 1000);
+}
+
+export function compareTemperature(
+  currentTemperature: number,
+  temperatures: number[],
+  times: number[],
+): "colder" | "warmer" | "same" {
+  const normalizedDate = set(new Date(), {
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0,
+  });
+  const timestamp = toTimestampInSeconds(subDays(normalizedDate, 1));
+  const yesterdayTemperature = Math.round(
+    temperatures[times.indexOf(timestamp)],
+  );
+  if (currentTemperature > yesterdayTemperature) {
+    return "warmer";
+  } else if (currentTemperature === yesterdayTemperature) {
+    return "same";
+  } else if (currentTemperature < yesterdayTemperature) return "colder";
+
+  return "same"; // it's needed to shut up TypeScript
 }

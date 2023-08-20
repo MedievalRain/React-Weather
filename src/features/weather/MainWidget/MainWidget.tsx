@@ -4,6 +4,7 @@ import WeatherIcon from "../../../ui/WeatherIcon";
 import { formatInTimeZone } from "date-fns-tz";
 import ru from "date-fns/locale/ru";
 import PeriodsForecast from "./PeriodsForecast";
+import WeatherDescription from "./WeatherDescription";
 
 function MainWidget() {
   const { latitude, longitude, timezone, id } = useAppSelector(
@@ -28,9 +29,12 @@ function MainWidget() {
     return (
       <div className="flex flex-col gap-2 p-4">
         <div>{formattedDateString}</div>
-        <div className="text-3xl font-extrabold text-gray-700">
-          Сегодня холоднее, чем вчера и облачно
-        </div>
+        <WeatherDescription
+          currentTemperature={weather.current_weather.temperature}
+          weathercode={weather.current_weather.weathercode}
+          temperatures={weather.hourly.temperature_2m}
+          times={weather.hourly.time}
+        />
         <div className="flex -translate-x-4 items-center font-mono text-6xl font-extrabold text-gray-700">
           <WeatherIcon
             size="big"
