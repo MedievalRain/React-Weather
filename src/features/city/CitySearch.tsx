@@ -19,30 +19,37 @@ function CitySearch() {
     setIsOpened(inputValue.length >= 2);
   }, [inputValue]);
 
-  const { name: city, country } = useAppSelector((state) => state.city);
+  const { name: cityName, country } = useAppSelector((state) => state.city);
   return (
     <div>
-      <input
-        type="text"
-        value={inputValue}
-        placeholder="Type a city name..."
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <label htmlFor=""></label>
-
-      {isOpened
-        ? foundCities?.results &&
-          foundCities.results.map((city) => (
-            <CitySearchItem
-              searchItem={city}
-              setInputValue={setInputValue}
-              key={city.id}
-            />
-          ))
-        : null}
-      <div>
-        {city}, {country}
+      <div className="flex items-center gap-2">
+        <input
+          id="search"
+          className="my-4 w-full flex-1 rounded-md p-1 shadow-md"
+          type="text"
+          value={inputValue}
+          placeholder="Type a city name..."
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        {cityName ? (
+          <label htmlFor="search" className="cursor-pointer font-semibold">
+            {cityName}, {country}
+          </label>
+        ) : null}
       </div>
+
+      {isOpened ? (
+        <ul className="absolute rounded-md bg-white shadow-lg">
+          {foundCities?.results &&
+            foundCities.results.map((city) => (
+              <CitySearchItem
+                searchItem={city}
+                setInputValue={setInputValue}
+                key={city.id}
+              />
+            ))}
+        </ul>
+      ) : null}
     </div>
   );
 }

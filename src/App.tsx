@@ -7,15 +7,17 @@ import MainWidget from "./features/weather/MainWidget";
 function App() {
   return (
     <div className="h-full min-h-screen w-screen bg-sky-100">
-      <main className="mx-auto grid w-full max-w-5xl grid-cols-2 gap-4">
+      <main className="mx-auto w-full max-w-5xl">
         <Provider store={store}>
           <CitySearch />
-          <Widget>
-            <MainWidget />
-          </Widget>
-          <Widget></Widget>
-          <Widget></Widget>
-          <Widget></Widget>
+          <div className="grid grid-cols-2 gap-4">
+            <Widget>
+              <MainWidget />
+            </Widget>
+            <Widget></Widget>
+            <Widget></Widget>
+            <Widget></Widget>
+          </div>
         </Provider>
       </main>
     </div>

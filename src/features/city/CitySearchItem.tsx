@@ -26,9 +26,9 @@ function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
   }
 
   return (
-    <li className="hover:bg-zinc-500">
+    <li className="px-2 py-1 hover:bg-sky-200">
       <button onClick={handleCityPick}>
-        {searchItem.name}, {searchItem.country}
+        {searchItem.name}, {searchItem.country}, {searchItem.admin1}
       </button>
     </li>
   );
