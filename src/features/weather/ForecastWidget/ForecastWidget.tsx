@@ -7,6 +7,7 @@ interface ForecastWidgetProps {}
 
 function ForecastWidget({}: ForecastWidgetProps) {
   const weather = useWeather();
+  const { timezone } = useAppSelector((state) => state.city);
   if (weather)
     return (
       <div className="flex flex-col gap-2 p-4">
@@ -26,6 +27,7 @@ function ForecastWidget({}: ForecastWidgetProps) {
             temperatureMin={weather.daily.temperature_2m_min[index]}
             windDirection={weather.daily.winddirection_10m_dominant[index]}
             windspeed={weather.daily.windspeed_10m_max[index]}
+            timezone={timezone}
           />
         ))}
       </div>
