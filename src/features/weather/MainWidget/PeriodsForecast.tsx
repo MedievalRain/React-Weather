@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import WeatherIcon from "../../../ui/WeatherIcon";
 import { getPeriods } from "../../../utils/periods";
 
@@ -15,11 +16,12 @@ function PeriodsForecast({
   timezone,
 }: PeriodsForecastProps) {
   const periods = getPeriods(timezone);
+  const { t } = useTranslation();
   return (
     <div className="flex justify-between">
       {periods.map((period) => (
         <div className="flex flex-col">
-          <div className="text-gray-600">{period.name}</div>
+          <div className="text-gray-600">{t(`periods.${period.name}`)}</div>
           <div className="flex -translate-x-4 items-center font-mono text-2xl font-extrabold text-gray-700">
             <WeatherIcon
               size="medium"
