@@ -23,7 +23,7 @@ function ForecastWidget({}: ForecastWidgetProps) {
             </tr>
           </thead>
           <tbody className="divide-y text-center">
-            {weather.daily.time.slice(1).map((timestamp, index) => (
+            {weather.daily.time.slice(2).map((timestamp, index) => (
               <ForecastTableItem
                 timestamp={timestamp}
                 precipation={weather.daily.precipitation_probability_max[index]}

@@ -27,6 +27,7 @@ export const weatherApi = createApi({
           timezone: timezone,
           past_days: 1,
           current_weather: true,
+          forecast_days: 8,
         },
       }),
     }),
