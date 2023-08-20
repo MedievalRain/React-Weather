@@ -4,6 +4,7 @@ import CitySearchItem from "./CitySearchItem";
 import { useAppSelector } from "../../hooks/storeHooks";
 import useKey from "../../hooks/useKey";
 import { useTranslation } from "react-i18next";
+import LanguageMenu from "../i18n/LanguageMenu";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
@@ -25,6 +26,7 @@ function CitySearch() {
   return (
     <div>
       <div className="flex items-center gap-2">
+        <LanguageMenu />
         <input
           id="search"
           className="my-4 w-full flex-1 rounded-md p-1 shadow-md"
