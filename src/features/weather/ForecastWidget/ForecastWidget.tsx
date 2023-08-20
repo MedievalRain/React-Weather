@@ -3,9 +3,7 @@ import { useAppSelector } from "../../../hooks/storeHooks";
 import useWeather from "../../../hooks/useWeather";
 import ForecastTableItem from "./ForecastTableItem";
 
-interface ForecastWidgetProps {}
-
-function ForecastWidget({}: ForecastWidgetProps) {
+function ForecastWidget() {
   const weather = useWeather();
   const { timezone } = useAppSelector((state) => state.city);
   const { t } = useTranslation();
@@ -25,6 +23,7 @@ function ForecastWidget({}: ForecastWidgetProps) {
           <tbody className="divide-y text-center">
             {weather.daily.time.slice(2).map((timestamp, index) => (
               <ForecastTableItem
+                key={timestamp}
                 isFirst={index === 0}
                 timestamp={timestamp}
                 precipation={weather.daily.precipitation_probability_max[index]}
