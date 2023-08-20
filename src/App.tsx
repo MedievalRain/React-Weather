@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import ForecastWidget from "./features/weather/ForecastWidget/ForecastWidget";
 import UVWidget from "./features/weather/UVWidget/UVWidget";
 import WindWidget from "./features/weather/WindWidget/WindWidget";
+import MoonWidget from "./features/weather/MoonWidget/MoonWidget";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
               </Widget>
               <Widget>
                 <WindWidget />
+              </Widget>
+              <Widget>
+                <MoonWidget />
               </Widget>
             </div>
           </Provider>
