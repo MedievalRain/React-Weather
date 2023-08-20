@@ -58,6 +58,14 @@ export function toTimestampInSeconds(date: Date): number {
   return Math.floor(date.getTime() / 1000);
 }
 
+export function normalizeDate(date: Date) {
+  return set(new Date(), {
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0,
+  });
+}
+
 export function compareTemperature(
   currentTemperature: number,
   temperatures: number[],
