@@ -1,8 +1,8 @@
 import { useAppSelector } from "../../../hooks/storeHooks";
 import { weatherApi } from "../../../services/weather";
 import WeatherIcon from "../../../ui/WeatherIcon";
-import { formatInTimeZone } from "date-fns-tz";
-import ru from "date-fns/locale/ru";
+import FormattedDate from "./FormattedDate";
+
 import PeriodsForecast from "./PeriodsForecast";
 import WeatherDescription from "./WeatherDescription";
 
@@ -19,16 +19,11 @@ function MainWidget() {
 
     { skip: id === 0 },
   );
-  const formattedDateString = formatInTimeZone(
-    new Date(),
-    timezone,
-    "dd MMMM, EEEE",
-    { locale: ru },
-  );
+
   if (weather) {
     return (
       <div className="flex flex-col gap-2 p-4">
-        <div>{formattedDateString}</div>
+        <FormattedDate timezone={timezone} />
         <WeatherDescription
           currentTemperature={weather.current_weather.temperature}
           weathercode={weather.current_weather.weathercode}
