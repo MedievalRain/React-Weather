@@ -5,6 +5,7 @@ import CitySearch from "./features/city/CitySearch";
 import MainWidget from "./features/weather/MainWidget/MainWidget";
 import { Suspense } from "react";
 import ForecastWidget from "./features/weather/ForecastWidget/ForecastWidget";
+import UVWidget from "./features/weather/UVWidget/UVWidget";
 
 function App() {
   return (
@@ -20,8 +21,12 @@ function App() {
               <Widget>
                 <ForecastWidget />
               </Widget>
-              <Widget></Widget>
-              <Widget></Widget>
+              <div className="grid grid-cols-4">
+                <Widget>
+                  <UVWidget />
+                </Widget>
+                <Widget></Widget>
+              </div>
             </div>
           </Provider>
         </main>
