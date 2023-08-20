@@ -9,8 +9,9 @@ function MoonWidget() {
   const phase = getPhaseName();
   return (
     <div className="flex flex-col items-center p-4">
-      <div className="font-semibold">{t("uv.uv_index")}</div>
+      <div className="font-semibold">{t("moon.moon")}</div>
       <MoonIcon phase={phase} />
+      <div className="font-semibold">{t(`moon.${phase}`)}</div>
     </div>
   );
 }
