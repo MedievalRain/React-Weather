@@ -39,7 +39,7 @@ function CitySearch() {
       </div>
 
       {isOpened ? (
-        <ul className="absolute rounded-md bg-white shadow-lg">
+        <ul className="absolute z-50 rounded-md bg-white shadow-lg">
           {foundCities?.results &&
             foundCities.results.map((city) => (
               <CitySearchItem
