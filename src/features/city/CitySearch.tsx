@@ -1,18 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { geocodingApi } from "../../services/geocoding";
 import CitySearchItem from "./CitySearchItem";
 import { useAppSelector } from "../../hooks/storeHooks";
+import useKey from "../../hooks/useKey";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
-
-  const { data: cities } = geocodingApi.useSearchCityQuery(
+  const [isOpened, setIsOpened] = useState(true);
+  const { data: foundCities } = geocodingApi.useSearchCityQuery(
     {
       cityName: inputValue,
       language: "ru",
     },
     { skip: inputValue.length < 2 }, // API does not work with query < 2 length.
   );
+  useKey("Escape", () => setIsOpened(false));
+  useEffect(() => setIsOpened(true), [inputValue]);
   const { name: city, country } = useAppSelector((state) => state.city);
   return (
     <div>
@@ -23,10 +26,17 @@ function CitySearch() {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <label htmlFor=""></label>
-      {cities?.results &&
-        cities.results.map((city) => (
-          <CitySearchItem searchItem={city} key={city.id} />
-        ))}
+
+      {isOpened
+        ? foundCities?.results &&
+          foundCities.results.map((city) => (
+            <CitySearchItem
+              searchItem={city}
+              setIsOpened={setIsOpened}
+              key={city.id}
+            />
+          ))
+        : null}
       <div>
         {city}, {country}
       </div>

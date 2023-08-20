@@ -5,9 +5,10 @@ import { CityData, SearchCity } from "./cityTypes";
 
 interface CitySearchItemProps {
   searchItem: SearchCity;
+  setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function CitySearchItem({ searchItem }: CitySearchItemProps) {
+function CitySearchItem({ searchItem, setIsOpened }: CitySearchItemProps) {
   const dispatch = useAppDispatch();
 
   function handleCityPick() {
@@ -20,6 +21,7 @@ function CitySearchItem({ searchItem }: CitySearchItemProps) {
       id: searchItem.id,
     };
     dispatch(setCity(cityData));
+    setIsOpened(false);
   }
 
   return (
