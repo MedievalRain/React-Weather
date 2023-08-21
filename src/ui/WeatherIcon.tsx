@@ -12,7 +12,7 @@ function WeatherIcon({ weathercode, size, isDay }: WeatherIconProps) {
     case "big": {
       return (
         <img
-          className="w-28"
+          className="h-28 w-28"
           src={`/weather-icons/${fileName}.svg`}
           alt="fileName"
         />
@@ -21,7 +21,7 @@ function WeatherIcon({ weathercode, size, isDay }: WeatherIconProps) {
     case "medium": {
       return (
         <img
-          className="w-14"
+          className="h-14 w-14"
           src={`/weather-icons/${fileName}.svg`}
           alt="fileName"
         />
@@ -30,7 +30,7 @@ function WeatherIcon({ weathercode, size, isDay }: WeatherIconProps) {
     case "small": {
       return (
         <img
-          className="w-10 translate-y-0.5"
+          className="h-14 w-10 translate-y-0.5"
           src={`/weather-icons/${fileName}.svg`}
           alt="fileName"
         />

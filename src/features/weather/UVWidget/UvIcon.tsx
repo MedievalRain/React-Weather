@@ -5,7 +5,7 @@ interface UvIconProps {
 function UvIcon({ uvIndex }: UvIconProps) {
   return (
     <img
-      className="w-28"
+      className="h-28 w-28"
       src={`/uv-index/uv-index-${uvIndex}.svg`}
       alt="UV index"
     />
