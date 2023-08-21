@@ -29,7 +29,7 @@ function CitySearch() {
   const { name: cityName, country } = useAppSelector((state) => state.city);
   return (
     <div ref={menuRef}>
-      <div className="mt-4 flex items-center  gap-2">
+      <div className="flex items-center  gap-2">
         <LanguageMenu />
         <input
           id="search"
