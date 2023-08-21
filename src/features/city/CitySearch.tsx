@@ -30,7 +30,7 @@ function CitySearch() {
     (state) => state.city.currentCity,
   );
   return (
-    <div ref={menuRef}>
+    <div ref={menuRef} className="relative">
       <div className="flex items-center  gap-2">
         <LanguageMenu />
         <input
@@ -46,20 +46,19 @@ function CitySearch() {
             {cityName}, {country}
           </label>
         ) : null}
+        {isOpened ? (
+          <ul className="absolute top-12 z-50 w-full rounded-md bg-white shadow-lg">
+            {foundCities?.results &&
+              foundCities.results.map((city) => (
+                <CitySearchItem
+                  searchItem={city}
+                  setInputValue={setInputValue}
+                  key={city.id}
+                />
+              ))}
+          </ul>
+        ) : null}
       </div>
-
-      {isOpened ? (
-        <ul className="absolute z-50 rounded-md bg-white shadow-lg">
-          {foundCities?.results &&
-            foundCities.results.map((city) => (
-              <CitySearchItem
-                searchItem={city}
-                setInputValue={setInputValue}
-                key={city.id}
-              />
-            ))}
-        </ul>
-      ) : null}
     </div>
   );
 }
