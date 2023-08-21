@@ -102,7 +102,8 @@
   },
   "cities": {
     "delete_cities": "Delete cities",
-    "weather_other_cities": "Weather in other cities"
+    "weather_other_cities": "Weather in other cities",
+    "save_cities_advice": "Start saving cities by pressing the floppy disk button"
   },
   "footer": {
     "open_meteo": "Weather data by"

@@ -30,6 +30,9 @@ function CitiesWidget() {
         {savedCities.map((city) => (
           <CityChip key={city.id} city={city} isEditMode={isEditMode} />
         ))}
+        {savedCities.length === 0 && (
+          <div>{t("cities.save_cities_advice")} </div>
+        )}
       </div>
     </div>
   );

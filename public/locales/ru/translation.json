@@ -102,7 +102,8 @@
   },
   "cities": {
     "delete_cities": "Удалить города",
-    "weather_other_cities": "Погода в других городах"
+    "weather_other_cities": "Погода в других городах",
+    "save_cities_advice": "Начните сохранять города нажав на кнопку дискеты"
   },
   "footer": {
     "open_meteo": "Погодные данные от"
