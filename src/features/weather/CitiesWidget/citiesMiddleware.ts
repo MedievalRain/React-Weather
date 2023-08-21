@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { CityState, deleteCity, saveCity } from "../../city/citySlice";
+import { deleteCity, saveCity } from "../../city/citySlice";
 
 const listener = createListenerMiddleware();
 
