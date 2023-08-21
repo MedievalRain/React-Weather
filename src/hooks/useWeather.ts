@@ -5,7 +5,7 @@ function useWeather() {
   const { latitude, longitude, timezone, id } = useAppSelector(
     (state) => state.city,
   );
-  const { data: weather } = weatherApi.useGetWeatherQuery(
+  const { data: weather, isFetching } = weatherApi.useGetWeatherQuery(
     {
       latitude,
       longitude,
@@ -15,7 +15,7 @@ function useWeather() {
     { skip: id === 0 },
   );
 
-  return { weather };
+  return { weather, isFetching };
 }
 
 export default useWeather;
