@@ -22,7 +22,7 @@ function MainWidget() {
         <div className="flex justify-between">
           <FormattedDate timezone={currentCity.timezone} />
           {isFetching && <Spinner />}
-          <SaveButton city={currentCity} />
+          <SaveButton />
         </div>
         <WeatherDescription
           currentTemperature={weather.current_weather.temperature}

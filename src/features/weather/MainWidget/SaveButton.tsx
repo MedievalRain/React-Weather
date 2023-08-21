@@ -3,14 +3,10 @@ import { saveCity } from "../../city/citySlice";
 import { useAppDispatch } from "../../../hooks/storeHooks";
 import IconButton from "../../../ui/IconButton";
 
-interface AddButtonProps {
-  city: CityData;
-}
-
-function AddButton({ city }: AddButtonProps) {
+function AddButton() {
   const dispatch = useAppDispatch();
   return (
-    <IconButton onClick={() => dispatch(saveCity(city))}>
+    <IconButton onClick={() => dispatch(saveCity())}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="1em"

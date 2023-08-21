@@ -25,12 +25,12 @@ const citySlice = createSlice({
     setCity(state, action: PayloadAction<CityData>) {
       state.currentCity = action.payload;
     },
-    saveCity(state, action: PayloadAction<CityData>) {
+    saveCity(state) {
       const isDuplicate = state.savedCities.some(
-        (city) => city.id === action.payload.id,
+        (city) => city.id === state.currentCity.id,
       );
       if (!isDuplicate) {
-        state.savedCities.push(action.payload);
+        state.savedCities.push(state.currentCity);
       }
     },
     deleteCity(state, action: PayloadAction<number>) {
