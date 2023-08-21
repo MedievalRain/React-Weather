@@ -9,7 +9,10 @@ interface AddButtonProps {
 function AddButton({ city }: AddButtonProps) {
   const dispatch = useAppDispatch();
   return (
-    <button onClick={() => dispatch(saveCity(city))}>
+    <button
+      className="rounded-md p-2 hover:bg-sky-200"
+      onClick={() => dispatch(saveCity(city))}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="1em"

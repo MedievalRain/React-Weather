@@ -47,7 +47,7 @@ function CitySearch() {
           </label>
         ) : null}
         {isOpened ? (
-          <ul className="absolute top-12 z-50 w-full rounded-md bg-white shadow-lg">
+          <ul className="absolute top-12 z-50 w-full overflow-hidden rounded-md bg-white shadow-lg">
             {foundCities?.results &&
               foundCities.results.map((city) => (
                 <CitySearchItem
