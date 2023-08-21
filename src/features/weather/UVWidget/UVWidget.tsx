@@ -20,7 +20,7 @@ function UVWidget() {
         <UvDescription uvIndex={uvIndex} />
       </div>
     );
-  }
+  } else return null;
 }
 
 export default UVWidget;

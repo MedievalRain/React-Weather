@@ -44,7 +44,7 @@ function MainWidget() {
         />
       </div>
     );
-  }
+  } else return null;
 }
 
 export default MainWidget;
