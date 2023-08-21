@@ -112,5 +112,6 @@
     "open_meteo": "Погодные данные от"
   },
   "save_city": "Сохранить город",
-  "change_language": "Изменить язык"
+  "change_language": "Изменить язык",
+  "change_theme": "Change theme"
 }

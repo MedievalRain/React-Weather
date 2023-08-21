@@ -112,5 +112,6 @@
     "open_meteo": "Weather data by"
   },
   "save_city": "Save city",
-  "change_language": "Change language"
+  "change_language": "Change language",
+  "change_theme": "Change theme"
 }

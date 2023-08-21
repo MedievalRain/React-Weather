@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import LanguageMenu from "../i18n/LanguageMenu";
 import { getLanguageByFirstLetter } from "../../utils/searchLang";
 import useClickOutside from "../../hooks/useClickOutside";
+import ThemeSwitchButton from "../theme/ThemeSwitchButton";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
@@ -33,6 +34,7 @@ function CitySearch() {
     <div ref={menuRef} className="relative">
       <div className="flex items-center  gap-2">
         <LanguageMenu />
+        <ThemeSwitchButton />
         <input
           id="search"
           className="w-full flex-1 rounded-md p-1 shadow-md"
