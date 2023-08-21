@@ -14,7 +14,7 @@ import CitiesWidget from "./features/weather/CitiesWidget/CitiesWidget";
 function App() {
   return (
     <Suspense>
-      <div className="min-h-screen w-screen flex-col bg-sky-100 text-gray-700">
+      <div className="min-h-screen w-screen flex-col bg-sky-100 fill-gray-700 text-gray-700">
         <main className="mx-auto flex h-full w-full max-w-5xl flex-col gap-4 p-6">
           <Provider store={store}>
             <CitySearch />
