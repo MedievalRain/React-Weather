@@ -99,5 +99,9 @@
     "unhealthy": "Unhealthy",
     "very_unhealthy": "Very Unhealthy",
     "hazardous": "Hazardous"
+  },
+  "cities": {
+    "delete_cities": "Delete cities",
+    "weather_other_cities": "Weather in other cities"
   }
 }

@@ -99,5 +99,9 @@
     "unhealthy": "Вредно",
     "very_unhealthy": "Очень вредно",
     "hazardous": "Опасно"
+  },
+  "cities": {
+    "delete_cities": "Удалить города",
+    "weather_other_cities": "Погода в других городах"
   }
 }
