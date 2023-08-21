@@ -7,7 +7,7 @@ import FormattedDate from "./FormattedDate";
 import PeriodsForecast from "./PeriodsForecast";
 import WeatherDescription from "./WeatherDescription";
 import Spinner from "../../../ui/Spinner";
-import AddButton from "./AddButton";
+import SaveButton from "./SaveButton";
 
 function MainWidget() {
   const { weather, isFetching } = useWeather();
@@ -22,7 +22,7 @@ function MainWidget() {
         <div className="flex justify-between">
           <FormattedDate timezone={currentCity.timezone} />
           {isFetching && <Spinner />}
-          <AddButton city={currentCity} />
+          <SaveButton city={currentCity} />
         </div>
         <WeatherDescription
           currentTemperature={weather.current_weather.temperature}

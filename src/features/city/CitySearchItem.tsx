@@ -1,5 +1,4 @@
 import { useAppDispatch } from "../../hooks/storeHooks";
-import AddButton from "../weather/MainWidget/AddButton";
 import { setCity } from "./citySlice";
 
 import { CityData, SearchCity } from "./cityTypes";
