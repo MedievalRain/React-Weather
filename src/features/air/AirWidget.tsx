@@ -6,7 +6,9 @@ import { getAirDescriptionKey } from "./airUtils";
 import AirValue from "./AirValue";
 
 function AirWidget() {
-  const { latitude, longitude } = useAppSelector((state) => state.city);
+  const { latitude, longitude } = useAppSelector(
+    (state) => state.city.currentCity,
+  );
   const { data: air } = airQualityApi.useGetAirQualityQuery({
     latitude,
     longitude,

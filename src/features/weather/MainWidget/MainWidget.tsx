@@ -10,7 +10,7 @@ import Spinner from "../../../ui/Spinner";
 
 function MainWidget() {
   const { weather, isFetching } = useWeather();
-  const { timezone } = useAppSelector((state) => state.city);
+  const { timezone } = useAppSelector((state) => state.city.currentCity);
   const { t } = useTranslation();
 
   if (weather != undefined) {

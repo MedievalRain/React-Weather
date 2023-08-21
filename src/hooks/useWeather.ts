@@ -3,7 +3,7 @@ import { useAppSelector } from "./storeHooks";
 
 function useWeather() {
   const { latitude, longitude, timezone, id } = useAppSelector(
-    (state) => state.city,
+    (state) => state.city.currentCity,
   );
   const { data: weather, isFetching } = weatherApi.useGetWeatherQuery(
     {

@@ -5,7 +5,7 @@ import ForecastTableItem from "./ForecastTableItem";
 
 function ForecastWidget() {
   const { weather } = useWeather();
-  const { timezone } = useAppSelector((state) => state.city);
+  const { timezone } = useAppSelector((state) => state.city.currentCity);
   const { t } = useTranslation();
   if (weather) {
     return (
