@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CityData } from "./cityTypes";
 
-type CityState = {
+export type CityState = {
   currentCity: CityData;
   savedCities: CityData[];
 };
-
+const savedCities = JSON.parse(localStorage.getItem("savedCities") || "[]");
 const initialState: CityState = {
   currentCity: {
     country: "Россия",
@@ -15,7 +15,7 @@ const initialState: CityState = {
     timezone: "Europe/Moscow",
     id: 524901,
   },
-  savedCities: [],
+  savedCities: savedCities,
 };
 
 const citySlice = createSlice({

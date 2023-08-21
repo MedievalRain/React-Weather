@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { geocodingApi } from "./services/geocoding";
 import { weatherApi } from "./services/weather";
 import { airQualityApi } from "./services/airQuality";
+import listener from "./features/weather/CitiesWidget/citiesMiddleware";
 
 const store = configureStore({
   reducer: {
@@ -12,11 +13,13 @@ const store = configureStore({
     [airQualityApi.reducerPath]: airQualityApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({}).concat([
-      geocodingApi.middleware,
-      weatherApi.middleware,
-      airQualityApi.middleware,
-    ]),
+    getDefaultMiddleware({})
+      .prepend(listener.middleware)
+      .concat([
+        geocodingApi.middleware,
+        weatherApi.middleware,
+        airQualityApi.middleware,
+      ]),
 });
 
 export default store;
