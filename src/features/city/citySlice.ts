@@ -1,7 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CityData } from "./cityTypes";
 
-const initialState = {
+type CityState = {
+  currentCity: CityData;
+  savedCities: CityData[];
+};
+
+const initialState: CityState = {
   currentCity: {
     country: "Россия",
     latitude: 55.75222,
@@ -20,7 +25,13 @@ const citySlice = createSlice({
     setCity(state, action: PayloadAction<CityData>) {
       state.currentCity = action.payload;
     },
+    saveCity(state, action: PayloadAction<CityData>) {
+      state.savedCities.push(action.payload);
+    },
+    deleteCity(state, action: PayloadAction<number>) {
+      state.savedCities.filter((city) => city.id !== action.payload);
+    },
   },
 });
-export const { setCity } = citySlice.actions;
+export const { setCity, saveCity, deleteCity } = citySlice.actions;
 export default citySlice.reducer;
