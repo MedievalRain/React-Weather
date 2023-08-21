@@ -11,6 +11,7 @@ function MoonWidget() {
     <div className="flex flex-col items-center p-4">
       <div className="font-semibold">{t("moon.moon")}</div>
       <MoonIcon phase={phase} />
+
       <div className="font-semibold">{t(`moon.${phase}`)}</div>
     </div>
   );

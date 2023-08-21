@@ -4,12 +4,12 @@ import useWeather from "../../../hooks/useWeather";
 import WeatherIcon from "../../../ui/WeatherIcon";
 import { normalizeDate, toTimestampInSeconds } from "../../../utils/format";
 import FormattedDate from "./FormattedDate";
-
 import PeriodsForecast from "./PeriodsForecast";
 import WeatherDescription from "./WeatherDescription";
+import Spinner from "../../../ui/Spinner";
 
 function MainWidget() {
-  const { weather } = useWeather();
+  const { weather, isFetching } = useWeather();
   const { timezone } = useAppSelector((state) => state.city);
   const { t } = useTranslation();
 
@@ -18,7 +18,10 @@ function MainWidget() {
     const index = weather.hourly.time.indexOf(timestamp);
     return (
       <div className="flex h-full flex-col justify-between px-4 pt-4">
-        <FormattedDate timezone={timezone} />
+        <div className="flex justify-between">
+          <FormattedDate timezone={timezone} />
+          {isFetching && <Spinner />}
+        </div>
         <WeatherDescription
           currentTemperature={weather.current_weather.temperature}
           weathercode={weather.current_weather.weathercode}
