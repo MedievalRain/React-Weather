@@ -9,7 +9,11 @@ interface EditButtonProps {
 
 function EditButton({ isEditMode, setIsEditMode, disabled }: EditButtonProps) {
   return (
-    <IconButton onClick={() => setIsEditMode((v) => !v)} disabled={disabled}>
+    <IconButton
+      onClick={() => setIsEditMode((v) => !v)}
+      disabled={disabled}
+      ariaLabelKey="cities.edit_cities"
+    >
       {isEditMode ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
