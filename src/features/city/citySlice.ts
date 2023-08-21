@@ -29,7 +29,9 @@ const citySlice = createSlice({
       state.savedCities.push(action.payload);
     },
     deleteCity(state, action: PayloadAction<number>) {
-      state.savedCities.filter((city) => city.id !== action.payload);
+      state.savedCities = state.savedCities.filter((city) => {
+        city.id != action.payload;
+      });
     },
   },
 });

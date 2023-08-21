@@ -9,12 +9,15 @@ function CitiesWidget() {
   return (
     <div className="flex flex-col gap-2 px-2 py-4">
       <div className="flex justify-between">
-        <div className="font-semibold">Погода в других городах</div>
+        <div className="font-semibold">
+          {isEditMode ? "Удалить города" : "Погода в других городах"}
+        </div>
+
         <EditButton isEditMode={isEditMode} setIsEditMode={setIsEditMode} />
       </div>
       <div className="flex flex-wrap gap-4">
         {savedCities.map((city) => (
-          <CityChip key={city.id} city={city} />
+          <CityChip key={city.id} city={city} isEditMode={isEditMode} />
         ))}
       </div>
     </div>

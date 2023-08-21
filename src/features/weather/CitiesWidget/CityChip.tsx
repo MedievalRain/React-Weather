@@ -1,14 +1,15 @@
 import { useAppDispatch } from "../../../hooks/storeHooks";
 import { weatherApi } from "../../../services/weather";
 import WeatherIcon from "../../../ui/WeatherIcon";
-import { setCity } from "../../city/citySlice";
+import { deleteCity, setCity } from "../../city/citySlice";
 import { CityData } from "../../city/cityTypes";
 
 interface CityChipProps {
   city: CityData;
+  isEditMode: boolean;
 }
 
-function CityChip({ city }: CityChipProps) {
+function CityChip({ city, isEditMode }: CityChipProps) {
   const { latitude, longitude, timezone, id } = city;
   const { data: weather, isFetching } = weatherApi.useGetWeatherQuery(
     {
@@ -22,15 +23,21 @@ function CityChip({ city }: CityChipProps) {
 
   const dispatch = useAppDispatch();
 
-  function handleCityPick() {
-    dispatch(setCity(city));
+  function handleClick() {
+    if (isEditMode) {
+      dispatch(deleteCity(city.id));
+    } else {
+      dispatch(setCity(city));
+    }
   }
 
   if (weather) {
     return (
       <button
-        onClick={handleCityPick}
-        className="flex items-center rounded-md bg-sky-100 px-2 font-semibold transition-all duration-200  hover:bg-sky-200 hover:shadow-md"
+        onClick={handleClick}
+        className={`flex items-center rounded-md bg-sky-100 px-2 font-semibold transition-all duration-200  ${
+          isEditMode ? "hover:bg-red-400" : "hover:bg-sky-200"
+        } hover:shadow-md`}
       >
         {city.name} {Math.round(weather.current_weather.temperature)}°
         <WeatherIcon
