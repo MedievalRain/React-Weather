@@ -60,7 +60,7 @@ export function toTimestampInSeconds(date: Date): number {
 }
 
 export function normalizeDate(date: Date) {
-  return set(new Date(), {
+  return set(date, {
     minutes: 0,
     seconds: 0,
     milliseconds: 0,
