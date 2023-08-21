@@ -3,6 +3,7 @@ import { useAppSelector } from "../../hooks/storeHooks";
 import { airQualityApi } from "../../services/airQuality";
 import AirDescription from "./AirDescription";
 import { getAirDescriptionKey } from "./airUtils";
+import AirValue from "./AirValue";
 
 function AirWidget() {
   const { latitude, longitude } = useAppSelector((state) => state.city);
@@ -17,7 +18,7 @@ function AirWidget() {
     return (
       <div className="flex h-full flex-col items-center justify-between p-4 font-semibold">
         <div>{t("air.air")}</div>
-        <div className="font-mono text-7xl font-extrabold">{aqi}</div>
+        <AirValue aqi={aqi} aqiKey={aqiKey} />
         <AirDescription aqiKey={aqiKey} />
       </div>
     );
