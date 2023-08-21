@@ -10,7 +10,7 @@ const languages = [
 
 function LanguageMenu() {
   const [isOpened, setIsOpened] = useState(false);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   function changeLanguage(locale: string) {
     i18n.changeLanguage(locale);
     setIsOpened(false);
@@ -21,6 +21,7 @@ function LanguageMenu() {
   return (
     <div ref={menuRef} className="relative">
       <button
+        aria-label={t("change_language")}
         onClick={() => setIsOpened((v) => !v)}
         className="flex h-8 w-8 items-center justify-center rounded-md bg-white p-1 shadow-md"
       >

@@ -111,5 +111,6 @@
   "footer": {
     "open_meteo": "Погодные данные от"
   },
-  "save_city": "Сохранить город"
+  "save_city": "Сохранить город",
+  "change_language": "Change language"
 }
