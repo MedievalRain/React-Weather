@@ -3,6 +3,7 @@ import { useAppSelector } from "../../../hooks/storeHooks";
 import CityChip from "./CityChip";
 import EditButton from "./EditButton";
 import { useTranslation } from "react-i18next";
+import SaveButton from "../MainWidget/SaveButton";
 
 function CitiesWidget() {
   const { savedCities } = useAppSelector((state) => state.city);
@@ -31,7 +32,10 @@ function CitiesWidget() {
           <CityChip key={city.id} city={city} isEditMode={isEditMode} />
         ))}
         {savedCities.length === 0 && (
-          <div>{t("cities.save_cities_advice")} </div>
+          <div className="flex items-center gap-1">
+            <div>{t("cities.save_cities_advice")} </div>
+            <SaveButton />
+          </div>
         )}
       </div>
     </div>
