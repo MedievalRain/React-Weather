@@ -19,7 +19,7 @@ export const airQualityApi = createApi({
         params: {
           latitude: latitude,
           longitude: longitude,
-          hourly: "european_aqi",
+          hourly: "us_aqi",
           timezone: "GMT",
           timeformat: "unixtime",
         },
