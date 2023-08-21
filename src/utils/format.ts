@@ -50,6 +50,7 @@ export function getFileByWeathercode(weathercode: number, isDay: 0 | 1 = 1) {
     }
     default: {
       console.error(`Uknown weather code ${weathercode}`);
+      return "not-available";
     }
   }
 }
