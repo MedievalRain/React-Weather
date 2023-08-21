@@ -9,6 +9,7 @@ import UVWidget from "./features/weather/UVWidget/UVWidget";
 import WindWidget from "./features/weather/WindWidget/WindWidget";
 import MoonWidget from "./features/weather/MoonWidget/MoonWidget";
 import AirWidget from "./features/air/AirWidget";
+import CitiesWidget from "./features/weather/CitiesWidget/CitiesWidget";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
                 <AirWidget />
               </Widget>
             </div>
+            <Widget>
+              <CitiesWidget />
+            </Widget>
           </Provider>
         </main>
       </div>
