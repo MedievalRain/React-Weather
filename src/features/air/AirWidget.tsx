@@ -22,7 +22,7 @@ function AirWidget() {
         <AirDescription aqiKey={aqiKey} />
       </div>
     );
-  }
+  } else return null;
 }
 
 export default AirWidget;

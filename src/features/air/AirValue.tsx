@@ -41,6 +41,8 @@ function AirValue({ aqiKey, aqi }: AirValueProps) {
           {aqi}
         </div>
       );
+    default:
+      return null;
   }
 }
 

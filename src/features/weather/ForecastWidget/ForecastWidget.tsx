@@ -7,7 +7,7 @@ function ForecastWidget() {
   const { weather } = useWeather();
   const { timezone } = useAppSelector((state) => state.city);
   const { t } = useTranslation();
-  if (weather)
+  if (weather) {
     return (
       <div className="flex flex-col gap-2 p-4 ">
         <div>{t("forecast.week_forecast")}</div>
@@ -42,6 +42,7 @@ function ForecastWidget() {
         </table>
       </div>
     );
+  } else return null;
 }
 
 export default ForecastWidget;

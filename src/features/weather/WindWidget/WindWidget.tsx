@@ -25,7 +25,7 @@ function WindWidget() {
         <WindDescription beaufort={beaufort} />
       </div>
     );
-  }
+  } else return null;
 }
 
 export default WindWidget;
