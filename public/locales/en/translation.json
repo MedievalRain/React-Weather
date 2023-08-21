@@ -46,6 +46,7 @@
       "99": "thunderstorm with heavy hail"
     }
   },
+  "feels_like": "Feels like",
   "forecast": {
     "week_forecast": "Week forecast",
     "day": "Day",

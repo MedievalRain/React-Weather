@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../../hooks/storeHooks";
 import useWeather from "../../../hooks/useWeather";
 import WeatherIcon from "../../../ui/WeatherIcon";
+import { normalizeDate, toTimestampInSeconds } from "../../../utils/format";
 import FormattedDate from "./FormattedDate";
 
 import PeriodsForecast from "./PeriodsForecast";
@@ -9,8 +11,11 @@ import WeatherDescription from "./WeatherDescription";
 function MainWidget() {
   const { weather } = useWeather();
   const { timezone } = useAppSelector((state) => state.city);
+  const { t } = useTranslation();
 
   if (weather != undefined) {
+    const timestamp = toTimestampInSeconds(normalizeDate(new Date()));
+    const index = weather.hourly.time.indexOf(timestamp);
     return (
       <div className="flex h-full flex-col gap-4 p-4">
         <FormattedDate timezone={timezone} />
@@ -27,7 +32,10 @@ function MainWidget() {
           />
           {Math.round(weather.current_weather.temperature)}°
         </div>
-
+        <div>
+          {t("feels_like")}{" "}
+          {Math.round(weather.hourly.apparent_temperature[index])}°
+        </div>
         <PeriodsForecast
           temperatures={weather.hourly.temperature_2m}
           weathercodes={weather.hourly.weathercode}
