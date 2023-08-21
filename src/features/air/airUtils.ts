@@ -13,4 +13,6 @@ export function getAirDescriptionKey(aqi: number) {
       return aqiNames[i];
     }
   }
+  console.log(`Wrong aqi number: ${aqi}`);
+  return "error";
 }
