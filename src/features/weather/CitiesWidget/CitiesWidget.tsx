@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../hooks/storeHooks";
 import CityChip from "./CityChip";
 import EditButton from "./EditButton";
@@ -6,6 +6,9 @@ import EditButton from "./EditButton";
 function CitiesWidget() {
   const { savedCities } = useAppSelector((state) => state.city);
   const [isEditMode, setIsEditMode] = useState(false);
+  useEffect(() => {
+    if (isEditMode && savedCities.length === 0) setIsEditMode(false);
+  }, [isEditMode, savedCities.length]);
   return (
     <div className="flex flex-col gap-2 px-2 py-4">
       <div className="flex justify-between">
@@ -13,7 +16,11 @@ function CitiesWidget() {
           {isEditMode ? "Удалить города" : "Погода в других городах"}
         </div>
 
-        <EditButton isEditMode={isEditMode} setIsEditMode={setIsEditMode} />
+        <EditButton
+          disabled={savedCities.length === 0}
+          isEditMode={isEditMode}
+          setIsEditMode={setIsEditMode}
+        />
       </div>
       <div className="flex flex-wrap gap-4">
         {savedCities.map((city) => (

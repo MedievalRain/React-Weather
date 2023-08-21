@@ -4,11 +4,12 @@ import IconButton from "../../../ui/IconButton";
 interface EditButtonProps {
   setIsEditMode: Dispatch<SetStateAction<boolean>>;
   isEditMode: boolean;
+  disabled: boolean;
 }
 
-function EditButton({ isEditMode, setIsEditMode }: EditButtonProps) {
+function EditButton({ isEditMode, setIsEditMode, disabled }: EditButtonProps) {
   return (
-    <IconButton onClick={() => setIsEditMode((v) => !v)}>
+    <IconButton onClick={() => setIsEditMode((v) => !v)} disabled={disabled}>
       {isEditMode ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
