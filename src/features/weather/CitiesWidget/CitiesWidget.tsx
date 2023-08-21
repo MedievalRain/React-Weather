@@ -41,7 +41,7 @@ function CitiesWidget() {
       <div className="font-semibold">Погода в других городах</div>
       <div className="flex flex-wrap gap-4">
         {placeholderCities.map((city) => (
-          <CityChip city={city} />
+          <CityChip key={city.id} city={city} />
         ))}
       </div>
     </div>
