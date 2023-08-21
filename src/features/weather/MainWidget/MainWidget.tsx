@@ -7,10 +7,11 @@ import FormattedDate from "./FormattedDate";
 import PeriodsForecast from "./PeriodsForecast";
 import WeatherDescription from "./WeatherDescription";
 import Spinner from "../../../ui/Spinner";
+import AddButton from "./AddButton";
 
 function MainWidget() {
   const { weather, isFetching } = useWeather();
-  const { timezone } = useAppSelector((state) => state.city.currentCity);
+  const { currentCity } = useAppSelector((state) => state.city);
   const { t } = useTranslation();
 
   if (weather != undefined) {
@@ -19,8 +20,9 @@ function MainWidget() {
     return (
       <div className="flex h-full flex-col justify-between px-4 pt-4">
         <div className="flex justify-between">
-          <FormattedDate timezone={timezone} />
+          <FormattedDate timezone={currentCity.timezone} />
           {isFetching && <Spinner />}
+          <AddButton city={currentCity} />
         </div>
         <WeatherDescription
           currentTemperature={weather.current_weather.temperature}
@@ -43,7 +45,7 @@ function MainWidget() {
           temperatures={weather.hourly.temperature_2m}
           weathercodes={weather.hourly.weathercode}
           time={weather.hourly.time}
-          timezone={timezone}
+          timezone={currentCity.timezone}
         />
       </div>
     );

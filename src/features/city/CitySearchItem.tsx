@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../../hooks/storeHooks";
-import AddButton from "./AddButton";
+import AddButton from "../weather/MainWidget/AddButton";
 import { setCity } from "./citySlice";
 
 import { CityData, SearchCity } from "./cityTypes";
@@ -36,7 +36,6 @@ function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
           {searchItem.name}, {searchItem.country}, {searchItem.admin1}
         </div>
       </button>
-      <AddButton city={searchItem} />
     </li>
   );
 }

@@ -1,6 +1,6 @@
-import { CityData } from "./cityTypes";
-import { saveCity } from "./citySlice";
-import { useAppDispatch } from "../../hooks/storeHooks";
+import { CityData } from "../../city/cityTypes";
+import { saveCity } from "../../city/citySlice";
+import { useAppDispatch } from "../../../hooks/storeHooks";
 
 interface AddButtonProps {
   city: CityData;
