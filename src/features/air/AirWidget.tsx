@@ -10,9 +10,11 @@ function AirWidget() {
 
   if (air) {
     return (
-      <div className="flex flex-col items-center p-4 font-semibold">
+      <div className="flex h-full flex-col items-center justify-between p-4 font-semibold">
         <div>Air quality</div>
-        <div>{air.hourly.us_aqi[0]}</div>
+        <div className="font-mono text-7xl font-extrabold">
+          {air.hourly.us_aqi[0]}
+        </div>
         <div>Normal</div>
       </div>
     );
