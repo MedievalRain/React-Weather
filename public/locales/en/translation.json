@@ -90,5 +90,14 @@
     "waning_gibbous": "Waning Gibbous",
     "last_quarter": "Last Quarter",
     "waning_crescent": "Waning Crescent"
+  },
+  "air": {
+    "air": "Air quality",
+    "good": "Good",
+    "moderate": "Moderate",
+    "sensitive_risk": "Sensitive Risk",
+    "unhealthy": "Unhealthy",
+    "very_unhealthy": "Very Unhealthy",
+    "hazardous": "Hazardous"
   }
 }

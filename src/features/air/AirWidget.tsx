@@ -1,5 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../hooks/storeHooks";
 import { airQualityApi } from "../../services/airQuality";
+import AirDescription from "./AirDescription";
 
 function AirWidget() {
   const { latitude, longitude } = useAppSelector((state) => state.city);
@@ -7,15 +9,14 @@ function AirWidget() {
     latitude,
     longitude,
   });
-
-  if (air) {
+  const { t } = useTranslation();
+  const aqi = air?.hourly.us_aqi[0];
+  if (aqi) {
     return (
       <div className="flex h-full flex-col items-center justify-between p-4 font-semibold">
-        <div>Air quality</div>
-        <div className="font-mono text-7xl font-extrabold">
-          {air.hourly.us_aqi[0]}
-        </div>
-        <div>Normal</div>
+        <div>{t("air.air")}</div>
+        <div className="font-mono text-7xl font-extrabold">{aqi}</div>
+        <AirDescription aqi={aqi} />
       </div>
     );
   }

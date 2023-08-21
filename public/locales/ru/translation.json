@@ -90,5 +90,14 @@
     "waning_gibbous": "Убывающий полумесяц",
     "last_quarter": "Последняя четверть",
     "waning_crescent": "Убывающий серп"
+  },
+  "air": {
+    "air": "Качество воздуха",
+    "good": "Хорошо",
+    "moderate": "Умеренно",
+    "sensitive_risk": "Риск для чувствительных",
+    "unhealthy": "Вредно",
+    "very_unhealthy": "Очень вредно",
+    "hazardous": "Опасно"
   }
 }
