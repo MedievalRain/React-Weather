@@ -8,6 +8,6 @@ export type AirQualityResponse = {
   hourly_units: { time: string; european_aqi: string };
   hourly: {
     time: number[];
-    european_aqi: number | null[];
+    european_aqi: number[];
   };
 };
