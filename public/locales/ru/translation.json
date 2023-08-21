@@ -103,5 +103,8 @@
   "cities": {
     "delete_cities": "Удалить города",
     "weather_other_cities": "Погода в других городах"
+  },
+  "footer": {
+    "open_meteo": "Погодные данные от"
   }
 }

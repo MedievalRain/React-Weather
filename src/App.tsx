@@ -10,6 +10,7 @@ import WindWidget from "./features/weather/WindWidget/WindWidget";
 import MoonWidget from "./features/weather/MoonWidget/MoonWidget";
 import AirWidget from "./features/air/AirWidget";
 import CitiesWidget from "./features/weather/CitiesWidget/CitiesWidget";
+import Footer from "./ui/Footer";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <CitiesWidget />
             </Widget>
           </Provider>
+          <Footer />
         </main>
       </div>
     </Suspense>
