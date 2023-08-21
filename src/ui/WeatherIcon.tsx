@@ -12,7 +12,7 @@ function WeatherIcon({ weathercode, size, isDay }: WeatherIconProps) {
     case "big": {
       return (
         <img
-          className="h-28 w-28"
+          className="h-32 w-32"
           src={`/weather-icons/${fileName}.svg`}
           alt="fileName"
         />
