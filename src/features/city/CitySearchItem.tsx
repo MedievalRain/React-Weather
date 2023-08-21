@@ -1,4 +1,5 @@
 import { useAppDispatch } from "../../hooks/storeHooks";
+import AddButton from "./AddButton";
 import { setCity } from "./citySlice";
 
 import { CityData, SearchCity } from "./cityTypes";
@@ -26,10 +27,13 @@ function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
   }
 
   return (
-    <li className="rounded-md px-2 py-1 hover:bg-sky-200">
-      <button onClick={handleCityPick} className="w-full text-start">
-        {searchItem.name}, {searchItem.country}, {searchItem.admin1}
+    <li className="flex justify-between rounded-md px-2 py-1 hover:bg-sky-200">
+      <button onClick={handleCityPick} className="w-full  text-start">
+        <div>
+          {searchItem.name}, {searchItem.country}, {searchItem.admin1}
+        </div>
       </button>
+      <AddButton city={searchItem} />
     </li>
   );
 }
