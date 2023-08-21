@@ -36,8 +36,10 @@ function CityChip({ city, isEditMode }: CityChipProps) {
     return (
       <button
         onClick={handleClick}
-        className={`flex items-center rounded-md bg-sky-100 px-2 font-semibold transition-all duration-200  ${
-          isEditMode ? "hover:bg-red-400" : "hover:bg-sky-200"
+        className={`flex items-center rounded-md bg-gray-700 px-2 font-semibold text-white transition-all duration-200  ${
+          isEditMode
+            ? "hover:bg-red-400 hover:text-gray-700"
+            : "hover:bg-gray-600"
         } hover:shadow-md`}
       >
         {city.name} {Math.round(weather.current_weather.temperature)}°
