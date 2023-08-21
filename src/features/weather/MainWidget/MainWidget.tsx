@@ -17,7 +17,7 @@ function MainWidget() {
     const timestamp = toTimestampInSeconds(normalizeDate(new Date()));
     const index = weather.hourly.time.indexOf(timestamp);
     return (
-      <div className="flex h-full flex-col gap-4 p-4">
+      <div className="flex h-full flex-col justify-between px-4 pt-4">
         <FormattedDate timezone={timezone} />
         <WeatherDescription
           currentTemperature={weather.current_weather.temperature}
