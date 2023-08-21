@@ -20,7 +20,7 @@ function PeriodsForecast({
   return (
     <div className="flex justify-between">
       {periods.map((period) => (
-        <div key={period.name} className="flex flex-col">
+        <div key={period.name} className="flex flex-col capitalize">
           <div className="text-gray-600">{t(`periods.${period.name}`)}</div>
           <div className="flex -translate-x-4 items-center font-mono text-2xl font-extrabold text-gray-700">
             <WeatherIcon
