@@ -5,7 +5,6 @@ import { AirQualityResponse } from "../features/air/airQualityTypes";
 interface IAirQualityQuery {
   longitude: number;
   latitude: number;
-  timezone: string;
 }
 
 export const airQualityApi = createApi({
@@ -15,13 +14,14 @@ export const airQualityApi = createApi({
   }),
   endpoints: (build) => ({
     getAirQuality: build.query<AirQualityResponse, IAirQualityQuery>({
-      query: ({ longitude, latitude, timezone }: IAirQualityQuery) => ({
+      query: ({ longitude, latitude }: IAirQualityQuery) => ({
         url: "/air-quality",
         params: {
           latitude: latitude,
           longitude: longitude,
           hourly: "european_aqi",
-          timezone: timezone,
+          timezone: "GMT",
+          timeformat: "unixtime",
         },
       }),
     }),
