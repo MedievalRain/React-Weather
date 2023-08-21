@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks";
 import IconButton from "../../ui/IconButton";
 import { switchTheme } from "./themeSlice";
@@ -5,7 +6,13 @@ import { switchTheme } from "./themeSlice";
 function ThemeSwitchButton() {
   const { dark } = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
-
+  useEffect(() => {
+    if (dark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [dark]);
   return (
     <IconButton
       onClick={() => dispatch(switchTheme())}
