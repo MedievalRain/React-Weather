@@ -1,5 +1,7 @@
+import { useAppDispatch } from "../../../hooks/storeHooks";
 import { weatherApi } from "../../../services/weather";
 import WeatherIcon from "../../../ui/WeatherIcon";
+import { setCity } from "../../city/citySlice";
 import { CityData } from "../../city/cityTypes";
 
 interface CityChipProps {
@@ -18,9 +20,18 @@ function CityChip({ city }: CityChipProps) {
     { skip: id === 0 },
   );
 
+  const dispatch = useAppDispatch();
+
+  function handleCityPick() {
+    dispatch(setCity(city));
+  }
+
   if (weather) {
     return (
-      <button className="flex items-center rounded-md bg-sky-100 px-2  font-semibold transition-all duration-200  hover:bg-sky-200 hover:shadow-md">
+      <button
+        onClick={handleCityPick}
+        className="flex items-center rounded-md bg-sky-100 px-2  font-semibold transition-all duration-200  hover:bg-sky-200 hover:shadow-md"
+      >
         {city.name}, {city.country}{" "}
         {Math.round(weather.current_weather.temperature)}°
         <WeatherIcon
