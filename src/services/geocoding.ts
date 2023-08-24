@@ -1,8 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GeocodingSchema } from "../features/city/cityTypes";
+import {
+  CityData,
+  GeocodingSchema,
+  SearchCity,
+} from "../features/city/cityTypes";
 
 interface ISearchQuery {
   cityName: string;
+  language: string;
+}
+interface IGetQuery {
+  id: number;
   language: string;
 }
 
@@ -17,6 +25,15 @@ export const geocodingApi = createApi({
         url: "/search",
         params: {
           name: cityName,
+          language: language,
+        },
+      }),
+    }),
+    localizeCity: build.query<SearchCity, IGetQuery>({
+      query: ({ id, language }: IGetQuery) => ({
+        url: "/get",
+        params: {
+          id: id,
           language: language,
         },
       }),

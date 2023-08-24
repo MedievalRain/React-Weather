@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { geocodingApi } from "../../services/geocoding";
 import CitySearchItem from "./CitySearchItem";
-import { useAppSelector } from "../../hooks/storeHooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks";
 import useKey from "../../hooks/useKey";
 import { useTranslation } from "react-i18next";
 import LanguageMenu from "../i18n/LanguageMenu";
 import useClickOutside from "../../hooks/useClickOutside";
 import ThemeSwitchButton from "../theme/ThemeSwitchButton";
+import useCity from "../../hooks/useCity";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
@@ -26,9 +27,10 @@ function CitySearch() {
     setIsOpened(inputValue.length >= 2);
   }, [inputValue]);
 
-  const { name: cityName, country } = useAppSelector(
+  const { name: cityName, id } = useAppSelector(
     (state) => state.city.currentCity,
   );
+  const cityTest = useCity(id);
   return (
     <div ref={menuRef} className="relative">
       <div className="flex items-center  gap-2">
@@ -40,14 +42,12 @@ function CitySearch() {
           placeholder={`${t("search.placeholder")}...`}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        {cityName ? (
-          <label
-            htmlFor="search"
-            className="cursor-pointer text-lg font-semibold"
-          >
-            {cityName}, {country}
-          </label>
-        ) : null}
+        <label
+          htmlFor="search"
+          className="cursor-pointer text-lg font-semibold"
+        >
+          {cityTest.city && `${cityTest.city.name}, ${cityTest.city.country}`}
+        </label>
         {isOpened ? (
           <ul className="absolute top-12 z-50 w-full overflow-hidden rounded-md bg-white shadow-lg dark:bg-gray-800">
             {foundCities?.results &&
