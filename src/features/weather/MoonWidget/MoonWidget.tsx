@@ -1,5 +1,3 @@
-import { useAppSelector } from "../../../hooks/storeHooks";
-import * as SunCalc from "suncalc";
 import { getPhaseName } from "./moonUtils";
 import MoonIcon from "./MoonIcon";
 import { useTranslation } from "react-i18next";

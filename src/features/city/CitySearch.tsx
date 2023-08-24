@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { geocodingApi } from "../../services/geocoding";
 import CitySearchItem from "./CitySearchItem";
-import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks";
+import { useAppSelector } from "../../hooks/storeHooks";
 import useKey from "../../hooks/useKey";
 import { useTranslation } from "react-i18next";
-import LanguageMenu from "../i18n/LanguageMenu";
 import useClickOutside from "../../hooks/useClickOutside";
-import ThemeSwitchButton from "../theme/ThemeSwitchButton";
 import useCity from "../../hooks/useCity";
 
 function CitySearch() {

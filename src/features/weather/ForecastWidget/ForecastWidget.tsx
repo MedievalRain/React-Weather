@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { useAppSelector } from "../../../hooks/storeHooks";
 import useWeather from "../../../hooks/useWeather";
 import ForecastTableItem from "./ForecastTableItem";
 import useCurrentCity from "../../../hooks/useCurrentCity";
