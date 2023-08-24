@@ -20,7 +20,7 @@ function ForecastWidget() {
               <th>{t("forecast.wind")}</th>
             </tr>
           </thead>
-          <tbody className="divide-y text-center">
+          <tbody className="divide-y text-center dark:divide-gray-600">
             {weather.daily.time.slice(2).map((timestamp, index) => (
               <ForecastTableItem
                 key={timestamp}
