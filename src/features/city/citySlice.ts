@@ -4,8 +4,16 @@ export type CityState = {
   currentCity: number;
   savedCities: number[];
 };
-const savedCities = JSON.parse(localStorage.getItem("savedCities") || "[]");
-const currentCity = Number(localStorage.getItem("currentCity")) || 524901;
+const isFirstLaunch = !localStorage.getItem("savedCities");
+let savedCities = [];
+let currentCity = 524901;
+if (isFirstLaunch) {
+  savedCities = [524901, 756135, 2643743, 5128581, 3451190, 2988507, 1273294];
+} else {
+  savedCities = JSON.parse(localStorage.getItem("savedCities") || "[]");
+  currentCity = Number(localStorage.getItem("currentCity")) || 524901;
+}
+
 const initialState: CityState = {
   currentCity: currentCity,
   savedCities: savedCities,
