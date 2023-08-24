@@ -40,7 +40,7 @@ function LanguageMenu() {
             <button
               key={language.displayName}
               onClick={() => changeLanguage(language.locale)}
-              className="rounded-md p-1 hover:bg-sky-100 dark:hover:bg-gray-700"
+              className="rounded-md p-2 text-start hover:bg-sky-100 dark:hover:bg-gray-700"
             >
               {language.displayName}
             </button>
