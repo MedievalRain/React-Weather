@@ -5,20 +5,19 @@ import { useAppSelector } from "../../hooks/storeHooks";
 import useKey from "../../hooks/useKey";
 import { useTranslation } from "react-i18next";
 import LanguageMenu from "../i18n/LanguageMenu";
-import { getLanguageByFirstLetter } from "../../utils/searchLang";
 import useClickOutside from "../../hooks/useClickOutside";
 import ThemeSwitchButton from "../theme/ThemeSwitchButton";
 
 function CitySearch() {
   const [inputValue, setInputValue] = useState("");
   const [isOpened, setIsOpened] = useState(true);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const menuRef = useRef<HTMLInputElement>(null);
   useClickOutside(menuRef, () => setIsOpened(false));
   const { data: foundCities } = geocodingApi.useSearchCityQuery(
     {
       cityName: inputValue,
-      language: getLanguageByFirstLetter(inputValue),
+      language: i18n.language,
     },
     { skip: inputValue.length < 2 }, // API does not work with query < 2 length.
   );
