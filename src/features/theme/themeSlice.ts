@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createListenerMiddleware, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 const initialState = {
   dark: false,
@@ -14,4 +15,15 @@ const themeSlice = createSlice({
   },
 });
 export const { switchTheme } = themeSlice.actions;
-export default themeSlice.reducer;
+
+export const themeListener = createListenerMiddleware();
+
+themeListener.startListening({
+  actionCreator: switchTheme,
+  effect: async (action, listenerApi) => {
+    const isDark = (listenerApi.getState() as RootState).theme.dark;
+    localStorage.setItem("isDark", (!isDark).toString());
+  },
+});
+
+export const themeReducer = themeSlice.reducer;

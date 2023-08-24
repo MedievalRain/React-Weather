@@ -1,10 +1,11 @@
 import cityReducer from "./features/city/citySlice";
-import themeReducer from "./features/theme/themeSlice";
+
 import { configureStore } from "@reduxjs/toolkit";
 import { geocodingApi } from "./services/geocoding";
 import { weatherApi } from "./services/weather";
 import { airQualityApi } from "./services/airQuality";
 import listener from "./features/weather/CitiesWidget/citiesMiddleware";
+import { themeListener, themeReducer } from "./features/theme/themeSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,7 +17,7 @@ const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({})
-      .prepend(listener.middleware)
+      .prepend(listener.middleware, themeListener.middleware)
       .concat([
         geocodingApi.middleware,
         weatherApi.middleware,
