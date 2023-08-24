@@ -5,8 +5,9 @@ export type CityState = {
   savedCities: number[];
 };
 const savedCities = JSON.parse(localStorage.getItem("savedCities") || "[]");
+const currentCity = Number(localStorage.getItem("currentCity")) || 524901;
 const initialState: CityState = {
-  currentCity: 524901,
+  currentCity: currentCity,
   savedCities: savedCities,
 };
 

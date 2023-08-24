@@ -6,6 +6,7 @@ import { weatherApi } from "./services/weather";
 import { airQualityApi } from "./services/airQuality";
 import listener from "./features/weather/CitiesWidget/citiesMiddleware";
 import { themeListener, themeReducer } from "./features/theme/themeSlice";
+import cityListener from "./features/city/cityMiddleware";
 
 const store = configureStore({
   reducer: {
@@ -17,7 +18,11 @@ const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({})
-      .prepend(listener.middleware, themeListener.middleware)
+      .prepend(
+        listener.middleware,
+        themeListener.middleware,
+        cityListener.middleware,
+      )
       .concat([
         geocodingApi.middleware,
         weatherApi.middleware,
