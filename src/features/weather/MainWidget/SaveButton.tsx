@@ -1,4 +1,3 @@
-import { CityData } from "../../city/cityTypes";
 import { saveCity } from "../../city/citySlice";
 import { useAppDispatch } from "../../../hooks/storeHooks";
 import IconButton from "../../../ui/IconButton";

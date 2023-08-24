@@ -1,9 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import {
-  CityData,
-  GeocodingSchema,
-  SearchCity,
-} from "../features/city/cityTypes";
+import { GeocodingSchema, SearchCity } from "../features/city/cityTypes";
 
 interface ISearchQuery {
   cityName: string;

@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { WeatherResponse } from "../features/weather/weatherTypes";
 import { AirQualityResponse } from "../features/air/airQualityTypes";
 
 interface IAirQualityQuery {
