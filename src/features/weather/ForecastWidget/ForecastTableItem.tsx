@@ -42,7 +42,6 @@ function ForecastTableItem({
         { locale: languageSchema[i18n.language] },
       )
     : t("forecast.tomorrow");
-  const directionSymbol = getDirectionSymbol(windDirection);
 
   return (
     <tr>
@@ -61,11 +60,8 @@ function ForecastTableItem({
       </td>
       <td>{precipitation}%</td>
       <td>
-        <div className="flex items-center justify-evenly">
-          <div>{directionSymbol}</div>
-          <div>
-            {Math.round(windspeed)} {t("forecast.mc")}
-          </div>
+        <div>
+          {Math.round(windspeed)} {t("forecast.mc")}
         </div>
       </td>
     </tr>
