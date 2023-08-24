@@ -37,7 +37,7 @@ function CitySearch() {
         <ThemeSwitchButton />
         <input
           id="search"
-          className="w-full flex-1 rounded-md p-1 shadow-md"
+          className="w-full flex-1 rounded-md p-1 shadow-md dark:bg-gray-800"
           type="text"
           value={inputValue}
           placeholder={`${t("search.placeholder")}...`}
@@ -49,7 +49,7 @@ function CitySearch() {
           </label>
         ) : null}
         {isOpened ? (
-          <ul className="absolute top-12 z-50 w-full overflow-hidden rounded-md bg-white shadow-lg">
+          <ul className="absolute top-12 z-50 w-full overflow-hidden rounded-md bg-white shadow-lg dark:bg-gray-800">
             {foundCities?.results &&
               foundCities.results.map((city) => (
                 <CitySearchItem

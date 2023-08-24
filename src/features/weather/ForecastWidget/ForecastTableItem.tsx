@@ -48,13 +48,15 @@ function ForecastTableItem({
     <tr>
       <td className="text-left">
         <div className="font-semibold capitalize">{formattedWeekday}</div>
-        <div className="text-gray-600">{formattedDate}</div>
+        <div className="text-gray-600 dark:text-gray-400">{formattedDate}</div>
       </td>
       <td>
         <div className="flex items-center justify-center gap-1">
           <WeatherIcon size="small" weathercode={weathercode} />
           <div>{Math.round(temperatureMax)}°</div>
-          <div className="text-gray-600">{Math.round(temperatureMin)}°</div>
+          <div className="text-gray-600 dark:text-gray-400">
+            {Math.round(temperatureMin)}°
+          </div>
         </div>
       </td>
       <td>{precipitation}%</td>

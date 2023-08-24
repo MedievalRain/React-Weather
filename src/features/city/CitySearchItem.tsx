@@ -29,7 +29,7 @@ function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
     <li className="flex justify-between">
       <button
         onClick={handleCityPick}
-        className=" w-full rounded-md px-2  py-1  text-start  hover:bg-sky-200"
+        className="w-full rounded-md px-2  py-1  text-start  hover:bg-sky-200 dark:hover:bg-gray-700"
       >
         <div>
           {searchItem.name}, {searchItem.country}, {searchItem.admin1}

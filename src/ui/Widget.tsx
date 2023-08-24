@@ -5,7 +5,11 @@ interface WidgetProps {
 }
 
 function Widget({ children }: WidgetProps) {
-  return <div className="rounded-md bg-white shadow-md">{children}</div>;
+  return (
+    <div className="rounded-md bg-white shadow-md dark:bg-gray-800">
+      {children}
+    </div>
+  );
 }
 
 export default Widget;
