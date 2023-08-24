@@ -17,7 +17,7 @@ function App() {
   return (
     <Suspense>
       <div
-        className={`min-h-screen w-screen flex-col bg-sky-100 fill-gray-700 text-gray-700 ${
+        className={`min-h-screen w-screen flex-col bg-sky-100 text-gray-700 ${
           "dark" && dark
         }`}
       >
