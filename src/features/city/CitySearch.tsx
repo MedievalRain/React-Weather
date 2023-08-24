@@ -27,10 +27,8 @@ function CitySearch() {
     setIsOpened(inputValue.length >= 2);
   }, [inputValue]);
 
-  const { name: cityName, id } = useAppSelector(
-    (state) => state.city.currentCity,
-  );
-  const cityTest = useCity(id);
+  const { currentCity } = useAppSelector((state) => state.city);
+  const cityTest = useCity(currentCity);
   return (
     <div ref={menuRef} className="relative">
       <div className="flex items-center  gap-2">

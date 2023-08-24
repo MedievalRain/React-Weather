@@ -1,22 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { CityData } from "./cityTypes";
 
 export type CityState = {
-  currentCity: CityData;
+  currentCity: number;
   savedCities: number[];
 };
 const savedCities = JSON.parse(localStorage.getItem("savedCities") || "[]");
 const initialState: CityState = {
-  currentCity: {
-    country: "Россия",
-    latitude: 55.75222,
-    longitude: 37.61556,
-    name: "Москва",
-    timezone: "Europe/Moscow",
-    id: 524901,
-    locale: "ru",
-  },
-
+  currentCity: 524901,
   savedCities: savedCities,
 };
 
@@ -24,15 +14,15 @@ const citySlice = createSlice({
   name: "city",
   initialState: initialState,
   reducers: {
-    setCity(state, action: PayloadAction<CityData>) {
+    setCity(state, action: PayloadAction<number>) {
       state.currentCity = action.payload;
     },
     saveCity(state) {
       const isDuplicate = state.savedCities.some(
-        (id) => id === state.currentCity.id,
+        (id) => id === state.currentCity,
       );
       if (!isDuplicate) {
-        state.savedCities.push(state.currentCity.id);
+        state.savedCities.push(state.currentCity);
       }
     },
     deleteCity(state, action: PayloadAction<number>) {
