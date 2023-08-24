@@ -3,6 +3,7 @@ import { useAppDispatch } from "../../../hooks/storeHooks";
 import { weatherApi } from "../../../services/weather";
 import WeatherIcon from "../../../ui/WeatherIcon";
 import { deleteCity, setCity } from "../../city/citySlice";
+import { CityData } from "../../city/cityTypes";
 import useCity from "../../../hooks/useCity";
 
 interface CityChipProps {
