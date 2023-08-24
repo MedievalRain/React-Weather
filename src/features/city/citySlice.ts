@@ -3,7 +3,7 @@ import { CityData } from "./cityTypes";
 
 export type CityState = {
   currentCity: CityData;
-  savedCities: CityData[];
+  savedCities: number[];
 };
 const savedCities = JSON.parse(localStorage.getItem("savedCities") || "[]");
 const initialState: CityState = {
@@ -29,15 +29,15 @@ const citySlice = createSlice({
     },
     saveCity(state) {
       const isDuplicate = state.savedCities.some(
-        (city) => city.id === state.currentCity.id,
+        (id) => id === state.currentCity.id,
       );
       if (!isDuplicate) {
-        state.savedCities.push(state.currentCity);
+        state.savedCities.push(state.currentCity.id);
       }
     },
     deleteCity(state, action: PayloadAction<number>) {
       state.savedCities = state.savedCities.filter(
-        (city) => city.id !== action.payload,
+        (id) => id !== action.payload,
       );
     },
   },
