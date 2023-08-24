@@ -18,7 +18,7 @@ function MainWidget() {
     const timestamp = toTimestampInSeconds(normalizeDate(new Date()));
     const index = weather.hourly.time.indexOf(timestamp);
     return (
-      <div className="flex h-full flex-col justify-between px-4 pt-4">
+      <div className="flex h-full flex-col justify-between px-4 pb-2 pt-4">
         <div className="flex justify-between">
           <FormattedDate timezone={currentCity.timezone} />
           {isFetching && <Spinner />}
