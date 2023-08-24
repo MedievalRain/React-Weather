@@ -9,12 +9,14 @@ import MoonWidget from "./features/weather/MoonWidget/MoonWidget";
 import AirWidget from "./features/air/AirWidget";
 import CitiesWidget from "./features/weather/CitiesWidget/CitiesWidget";
 import Footer from "./ui/Footer";
+import Header from "./features/Header";
 
 function App() {
   return (
     <Suspense>
       <div className="min-h-screen w-screen flex-col bg-sky-100 text-gray-700 dark:bg-gray-900 dark:text-gray-300">
         <main className="mx-auto flex h-full w-full max-w-5xl flex-col gap-4 p-6">
+          <Header />
           <CitySearch />
           <div className="flex grid-cols-2 flex-col gap-4 md:grid">
             <Widget>

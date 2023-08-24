@@ -33,8 +33,6 @@ function CitySearch() {
   return (
     <div ref={menuRef} className="relative">
       <div className="flex items-center  gap-2">
-        <LanguageMenu />
-        <ThemeSwitchButton />
         <input
           id="search"
           className="w-full flex-1 rounded-md p-3 shadow-md dark:bg-gray-800"
