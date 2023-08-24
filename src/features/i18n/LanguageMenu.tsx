@@ -35,12 +35,12 @@ function LanguageMenu() {
       </IconButton>
 
       {isOpened && (
-        <div className="absolute -right-1/2 flex flex-col rounded-md bg-white shadow-lg dark:bg-gray-800">
+        <div className="absolute -right-1/2 z-50 flex flex-col rounded-md bg-white shadow-lg dark:bg-gray-800">
           {languages.map((language) => (
             <button
               key={language.displayName}
               onClick={() => changeLanguage(language.locale)}
-              className="rounded-md p-2 text-start hover:bg-sky-100 dark:hover:bg-gray-700"
+              className=" rounded-md p-2 text-start hover:bg-sky-100 dark:hover:bg-gray-700"
             >
               {language.displayName}
             </button>
