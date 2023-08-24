@@ -26,4 +26,5 @@ export type CityData = {
   country: string;
   latitude: number;
   longitude: number;
+  locale: string;
 };

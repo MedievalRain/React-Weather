@@ -14,7 +14,9 @@ const initialState: CityState = {
     name: "Москва",
     timezone: "Europe/Moscow",
     id: 524901,
+    locale: "ru",
   },
+
   savedCities: savedCities,
 };
 

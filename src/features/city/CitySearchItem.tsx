@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "../../hooks/storeHooks";
 import { setCity } from "./citySlice";
 
@@ -10,7 +11,7 @@ interface CitySearchItemProps {
 
 function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
   const dispatch = useAppDispatch();
-
+  const { i18n } = useTranslation();
   function handleCityPick() {
     const cityData: CityData = {
       name: searchItem.name,
@@ -19,6 +20,7 @@ function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
       longitude: searchItem.longitude,
       timezone: searchItem.timezone,
       id: searchItem.id,
+      locale: i18n.language,
     };
     dispatch(setCity(cityData));
 
