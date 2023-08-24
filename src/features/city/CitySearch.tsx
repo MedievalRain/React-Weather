@@ -35,14 +35,17 @@ function CitySearch() {
       <div className="flex items-center  gap-2">
         <input
           id="search"
-          className="w-full flex-1 rounded-md p-3 shadow-md dark:bg-gray-800"
+          className="w-full flex-1 rounded-md p-3 text-lg shadow-md dark:bg-gray-800"
           type="text"
           value={inputValue}
           placeholder={`${t("search.placeholder")}...`}
           onChange={(e) => setInputValue(e.target.value)}
         />
         {cityName ? (
-          <label htmlFor="search" className="cursor-pointer font-semibold">
+          <label
+            htmlFor="search"
+            className="cursor-pointer text-lg font-semibold"
+          >
             {cityName}, {country}
           </label>
         ) : null}
