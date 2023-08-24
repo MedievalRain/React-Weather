@@ -37,7 +37,7 @@ function CitySearch() {
         <ThemeSwitchButton />
         <input
           id="search"
-          className="w-full flex-1 rounded-md p-1 shadow-md dark:bg-gray-800"
+          className="w-full flex-1 rounded-md p-3 shadow-md dark:bg-gray-800"
           type="text"
           value={inputValue}
           placeholder={`${t("search.placeholder")}...`}

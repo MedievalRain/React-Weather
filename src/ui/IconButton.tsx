@@ -20,7 +20,7 @@ function IconButton({
       aria-label={t(ariaLabelKey)}
       disabled={disabled}
       onClick={onClick}
-      className="flex h-8 w-8 items-center justify-center rounded-md bg-gray-700 fill-white p-1 shadow-md transition-shadow duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:bg-gray-500"
+      className="flex h-12 w-12 items-center justify-center rounded-md bg-gray-700 fill-white p-1 shadow-md transition-shadow duration-200 hover:shadow-lg disabled:cursor-not-allowed disabled:bg-gray-500"
     >
       {children}
     </button>
