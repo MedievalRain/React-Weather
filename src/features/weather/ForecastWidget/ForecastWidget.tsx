@@ -2,12 +2,13 @@ import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../../hooks/storeHooks";
 import useWeather from "../../../hooks/useWeather";
 import ForecastTableItem from "./ForecastTableItem";
+import useCurrentCity from "../../../hooks/useCurrentCity";
 
 function ForecastWidget() {
   const { weather } = useWeather();
-  const { timezone } = useAppSelector((state) => state.city.currentCity);
+  const { city } = useCurrentCity();
   const { t } = useTranslation();
-  if (weather) {
+  if (weather && city) {
     return (
       <div className="flex flex-col gap-2 p-4 ">
         <div className="pt-3">{t("forecast.week_forecast")}</div>
@@ -34,7 +35,7 @@ function ForecastWidget() {
                 windDirection={weather.daily.winddirection_10m_dominant[index]}
                 windspeed={weather.daily.windspeed_10m_max[index]}
                 weathercode={weather.daily.weathercode[index]}
-                timezone={timezone}
+                timezone={city.timezone}
               />
             ))}
             {/* slice(2) is needed because the API returns yesterday and today as two first elements. */}

@@ -1,18 +1,19 @@
 import { useTranslation } from "react-i18next";
-import { useAppSelector } from "../../hooks/storeHooks";
 import { airQualityApi } from "../../services/airQuality";
 import AirDescription from "./AirDescription";
 import { getAirDescriptionKey } from "./airUtils";
 import AirValue from "./AirValue";
+import useCurrentCity from "../../hooks/useCurrentCity";
 
 function AirWidget() {
-  const { latitude, longitude } = useAppSelector(
-    (state) => state.city.currentCity,
+  const { city } = useCurrentCity();
+  const { data: air } = airQualityApi.useGetAirQualityQuery(
+    {
+      latitude: city?.latitude as number,
+      longitude: city?.longitude as number,
+    },
+    { skip: !city },
   );
-  const { data: air } = airQualityApi.useGetAirQualityQuery({
-    latitude,
-    longitude,
-  });
   const { t } = useTranslation();
   const aqi = air?.hourly.us_aqi[0];
   if (aqi) {
