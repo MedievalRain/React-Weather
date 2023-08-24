@@ -19,7 +19,7 @@ function MainWidget() {
     const index = weather.hourly.time.indexOf(timestamp);
     return (
       <div className="flex h-full flex-col justify-between px-4 pb-2 pt-4">
-        <div className="flex justify-between">
+        <div className="flex items-center justify-between">
           <FormattedDate timezone={currentCity.timezone} />
           {isFetching && <Spinner />}
           <SaveButton />

@@ -14,7 +14,7 @@ function CitiesWidget() {
   const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-2 px-2 py-4">
-      <div className="flex justify-between">
+      <div className="flex items-center  justify-between">
         <div className="font-semibold">
           {isEditMode
             ? t("cities.delete_cities")

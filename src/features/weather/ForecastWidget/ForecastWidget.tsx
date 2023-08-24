@@ -10,7 +10,7 @@ function ForecastWidget() {
   if (weather) {
     return (
       <div className="flex flex-col gap-2 p-4 ">
-        <div>{t("forecast.week_forecast")}</div>
+        <div className="pt-3">{t("forecast.week_forecast")}</div>
         <table>
           <thead>
             <tr>
