@@ -5,8 +5,8 @@ import useClickOutside from "../../hooks/useClickOutside";
 import IconButton from "../../ui/IconButton";
 
 const languages = [
-  { displayName: "Русский", locale: "ru" },
   { displayName: "English", locale: "en" },
+  { displayName: "Русский", locale: "ru" },
 ];
 
 function LanguageMenu() {
