@@ -18,13 +18,3 @@ export type SearchCity = {
 export type GeocodingSchema = {
   results: SearchCity[];
 };
-
-export type CityData = {
-  id: number;
-  name: string;
-  timezone: string;
-  country: string;
-  latitude: number;
-  longitude: number;
-  locale: string;
-};
