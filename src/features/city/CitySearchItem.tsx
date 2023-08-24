@@ -1,8 +1,6 @@
-import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "../../hooks/storeHooks";
 import { setCity } from "./citySlice";
-
-import { CityData, SearchCity } from "./cityTypes";
+import { SearchCity } from "./cityTypes";
 
 interface CitySearchItemProps {
   searchItem: SearchCity;
