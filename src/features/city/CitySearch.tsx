@@ -35,7 +35,7 @@ function CitySearch() {
       <div className="flex items-center  gap-2">
         <input
           id="search"
-          className="w-full flex-1 rounded-md p-3 text-lg shadow-md dark:bg-gray-800"
+          className="w-full flex-1 rounded-md p-2 text-lg shadow-md"
           type="text"
           value={inputValue}
           placeholder={`${t("search.placeholder")}...`}
