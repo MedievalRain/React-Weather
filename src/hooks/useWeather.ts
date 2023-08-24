@@ -1,18 +1,17 @@
 import { weatherApi } from "../services/weather";
 import { useAppSelector } from "./storeHooks";
+import useCity from "./useCity";
 
 function useWeather() {
-  const { latitude, longitude, timezone, id } = useAppSelector(
-    (state) => state.city.currentCity,
-  );
+  const { currentCity } = useAppSelector((state) => state.city);
+  const { city } = useCity(currentCity);
   const { data: weather, isFetching } = weatherApi.useGetWeatherQuery(
     {
-      latitude,
-      longitude,
-      timezone,
+      latitude: city?.latitude as number,
+      longitude: city?.longitude as number,
+      timezone: city?.timezone as string,
     },
-
-    { skip: id === 0 },
+    { skip: !city },
   );
 
   return { weather, isFetching };

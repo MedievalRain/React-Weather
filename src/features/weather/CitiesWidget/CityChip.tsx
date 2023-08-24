@@ -12,8 +12,6 @@ interface CityChipProps {
 
 function CityChip({ id, isEditMode }: CityChipProps) {
   const { city } = useCity(id);
-  const { i18n } = useTranslation();
-
   const { data: weather } = weatherApi.useGetWeatherQuery(
     {
       latitude: city?.latitude as number,
@@ -31,17 +29,7 @@ function CityChip({ id, isEditMode }: CityChipProps) {
       dispatch(deleteCity(id));
     } else {
       if (city) {
-        dispatch(
-          setCity({
-            country: city.country,
-            id: city.id,
-            latitude: city.latitude,
-            longitude: city.longitude,
-            locale: i18n.language,
-            name: city.name,
-            timezone: city.timezone,
-          }),
-        );
+        dispatch(setCity(city.id));
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }
     }

@@ -13,17 +13,7 @@ function CitySearchItem({ searchItem, setInputValue }: CitySearchItemProps) {
   const dispatch = useAppDispatch();
   const { i18n } = useTranslation();
   function handleCityPick() {
-    const cityData: CityData = {
-      name: searchItem.name,
-      country: searchItem.country,
-      latitude: searchItem.latitude,
-      longitude: searchItem.longitude,
-      timezone: searchItem.timezone,
-      id: searchItem.id,
-      locale: i18n.language,
-    };
-    dispatch(setCity(cityData));
-
+    dispatch(setCity(searchItem.id));
     setInputValue("");
   }
 
