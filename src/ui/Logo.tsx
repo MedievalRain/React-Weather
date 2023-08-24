@@ -14,7 +14,7 @@ function Logo() {
         y1="188.003"
         x2="566.887"
         y2="156.003"
-        stroke-width="8"
+        strokeWidth="8"
       />
     </svg>
   );
