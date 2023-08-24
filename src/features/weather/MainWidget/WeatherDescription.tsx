@@ -22,7 +22,7 @@ function WeatherDescription({
   const { t } = useTranslation();
 
   return (
-    <div className="text-3xl font-extrabold text-gray-700">
+    <div className="text-3xl font-extrabold">
       {`${t("description.today")} ${t(`description.${comparision}`)} ${t(
         "description.than_yesterday",
       )}, ${t("description.and")} ${t(

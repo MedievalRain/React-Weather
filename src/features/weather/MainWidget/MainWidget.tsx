@@ -30,7 +30,7 @@ function MainWidget() {
           temperatures={weather.hourly.temperature_2m}
           times={weather.hourly.time}
         />
-        <div className="flex -translate-x-4 items-center font-mono text-7xl font-extrabold text-gray-700">
+        <div className="flex -translate-x-4 items-center font-mono text-7xl font-extrabold">
           <WeatherIcon
             size="big"
             weathercode={weather.current_weather.weathercode}

@@ -12,7 +12,7 @@ function ForecastWidget() {
       <div className="flex flex-col gap-2 p-4 ">
         <div>{t("forecast.week_forecast")}</div>
         <table>
-          <thead className="text-gray-600">
+          <thead>
             <tr>
               <th className="text-left">{t("forecast.day")}</th>
               <th>{t("forecast.temperature")}</th>
