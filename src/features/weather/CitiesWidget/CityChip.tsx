@@ -3,33 +3,47 @@ import { useAppDispatch } from "../../../hooks/storeHooks";
 import { weatherApi } from "../../../services/weather";
 import WeatherIcon from "../../../ui/WeatherIcon";
 import { deleteCity, setCity } from "../../city/citySlice";
-import { CityData } from "../../city/cityTypes";
+import useCity from "../../../hooks/useCity";
 
 interface CityChipProps {
-  city: CityData;
+  id: number;
   isEditMode: boolean;
 }
 
-function CityChip({ city, isEditMode }: CityChipProps) {
-  const { latitude, longitude, timezone, id } = city;
-  const { data: weather, isFetching } = weatherApi.useGetWeatherQuery(
+function CityChip({ id, isEditMode }: CityChipProps) {
+  const { city } = useCity(id);
+  const { i18n } = useTranslation();
+
+  const { data: weather } = weatherApi.useGetWeatherQuery(
     {
-      latitude,
-      longitude,
-      timezone,
+      latitude: city?.latitude as number,
+      longitude: city?.longitude as number,
+      timezone: city?.timezone as string,
     },
 
-    { skip: id === 0 },
+    { skip: id === 0 || !city },
   );
 
   const dispatch = useAppDispatch();
 
   function handleClick() {
     if (isEditMode) {
-      dispatch(deleteCity(city.id));
+      dispatch(deleteCity(id));
     } else {
-      dispatch(setCity(city));
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      if (city) {
+        dispatch(
+          setCity({
+            country: city.country,
+            id: city.id,
+            latitude: city.latitude,
+            longitude: city.longitude,
+            locale: i18n.language,
+            name: city.name,
+            timezone: city.timezone,
+          }),
+        );
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
     }
   }
   const { t } = useTranslation();
@@ -45,7 +59,7 @@ function CityChip({ city, isEditMode }: CityChipProps) {
             : "hover:bg-gray-600"
         } hover:shadow-md`}
       >
-        {city.name} {Math.round(weather.current_weather.temperature)}°
+        {city?.name} {Math.round(weather.current_weather.temperature)}°
         <WeatherIcon
           size="small"
           weathercode={weather.current_weather.weathercode}

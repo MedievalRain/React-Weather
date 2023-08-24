@@ -28,8 +28,8 @@ function CitiesWidget() {
         />
       </div>
       <div className="flex flex-wrap gap-4">
-        {savedCities.map((city) => (
-          <CityChip key={city.id} city={city} isEditMode={isEditMode} />
+        {savedCities.map((id) => (
+          <CityChip key={id} id={id} isEditMode={isEditMode} />
         ))}
         {savedCities.length === 0 && (
           <div className="flex items-center gap-1">

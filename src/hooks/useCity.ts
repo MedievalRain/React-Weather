@@ -10,7 +10,7 @@ function useCity(id: number) {
       language,
     },
 
-    { skip: id === 0 },
+    { skip: id === 0 || !id },
   );
 
   return { city, isFetching };
