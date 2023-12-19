@@ -8,3 +8,4 @@
 - React
 - Redux Toolkit + RTK Query
 - TailwindCSS
+- react-i18next
